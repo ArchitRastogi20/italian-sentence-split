@@ -1,0 +1,291 @@
+root@d515b8fa58dd:/# python train_encoders_crf.py
+================================================================================
+CRF-BASED SENTENCE SPLITTING
+================================================================================
+wandb: Currently logged in as: architk2003 (architk2003-sapienza-universit-di-roma) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+
+================================================================================
+LOADING DATA
+================================================================================
+Loading manzoni_train_tokens.csv...
+  Loaded 74764 tokens
+  Grouped into 2447 sentences
+Loading manzoni_dev_tokens.csv...
+  Loaded 9343 tokens
+  Grouped into 324 sentences
+Loading OOD_test.csv...
+  Loaded 1508 tokens
+  Grouped into 88 sentences
+
+Train: 2447 sentences
+Dev: 324 sentences
+OOD: 88 sentences
+
+================================================================================
+TRAINING: xlm-roberta-base
+================================================================================
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.22.3
+wandb: Run data is saved locally in /workspace/wandb/run-20251108_195629-3gd0d70l
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run xlm-roberta-base_hyperparameter_search
+wandb: ⭐️ View project at https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf
+wandb: 🚀 View run at https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf/runs/3gd0d70l
+Preparing datasets...
+Tokenizing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2447/2447 [00:01<00:00, 1446.51it/s]
+Tokenizing: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 324/324 [00:00<00:00, 1676.67it/s]
+Tokenizing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 88/88 [00:00<00:00, 1877.52it/s]
+
+Hyperparameter tuning for xlm-roberta-base...
+[I 2025-11-08 19:56:36,696] A new study created in memory with name: xlm-roberta-base_crf_study
+{'loss': 29.5654, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.03}                                                                                                                                 
+{'eval_loss': 1.5502126216888428, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_f1': 0.0, 'eval_accuracy': 0.9653216311677192, 'eval_runtime': 6.4733, 'eval_samples_per_second': 50.052, 'eval_steps_per_second': 1.699, 'epoch': 1.0}                                                                                                                                                                        
+{'loss': 9.8315, 'grad_norm': 6.973567485809326, 'learning_rate': 3.085703369041472e-05, 'epoch': 1.29}                                                                                                  
+{'eval_loss': 0.001128773670643568, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.927, 'eval_samples_per_second': 54.665, 'eval_steps_per_second': 1.856, 'epoch': 2.0}                                                                                                                                                                                      
+{'loss': 0.0765, 'grad_norm': 6.95927619934082, 'learning_rate': 6.234380276226647e-05, 'epoch': 2.58}                                                                                                   
+{'eval_loss': 0.010154977440834045, 'eval_precision': 0.9969230769230769, 'eval_recall': 1.0, 'eval_f1': 0.9984591679506933, 'eval_accuracy': 0.9998929679974312, 'eval_runtime': 6.5452, 'eval_samples_per_second': 49.502, 'eval_steps_per_second': 1.681, 'epoch': 3.0}                                                                                                                                        
+{'loss': 0.0268, 'grad_norm': 0.9074235558509827, 'learning_rate': 6.114322811420307e-05, 'epoch': 3.86}                                                                                                 
+{'eval_loss': 0.00047698873095214367, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 7.4527, 'eval_samples_per_second': 43.474, 'eval_steps_per_second': 1.476, 'epoch': 4.0}                                                                                                                                                                                   
+{'eval_loss': 0.00022673606872558594, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.6809, 'eval_samples_per_second': 57.034, 'eval_steps_per_second': 1.936, 'epoch': 5.0}                                                                                                                                                                                   
+{'train_runtime': 1012.6021, 'train_samples_per_second': 24.165, 'train_steps_per_second': 0.385, 'train_loss': 2.650921368293273, 'epoch': 5.0}                                                         
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 195/390 [16:52<16:52,  5.19s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:04<00:00,  2.65it/s]
+[I 2025-11-08 20:13:36,989] Trial 0 finished with value: 1.0 and parameters: {'lr': 7.053036272094794e-05, 'weight_decay': 0.09410357905238109, 'warmup_ratio': 0.2850536451820843, 'batch_size': 16}. Best is trial 0 with value: 1.0.
+{'loss': 64.8332, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.03}                                                                                                                                 
+{'eval_loss': 0.6592581272125244, 'eval_precision': 0.884180790960452, 'eval_recall': 0.9660493827160493, 'eval_f1': 0.9233038348082596, 'eval_accuracy': 0.994434335866424, 'eval_runtime': 5.3768, 'eval_samples_per_second': 60.258, 'eval_steps_per_second': 2.046, 'epoch': 1.0}                                                                                                                             
+{'loss': 17.948, 'grad_norm': 5.14739990234375, 'learning_rate': 3.942707530293666e-05, 'epoch': 1.29}                                                                                                   
+{'eval_loss': 0.0007694209343753755, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.8157, 'eval_samples_per_second': 55.711, 'eval_steps_per_second': 1.891, 'epoch': 2.0}                                                                                                                                                                                    
+{'loss': 0.0525, 'grad_norm': 1.198764681816101, 'learning_rate': 5.947824884436058e-05, 'epoch': 2.58}                                                                                                  
+{'eval_loss': 0.0008463123813271523, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.2866, 'eval_samples_per_second': 61.287, 'eval_steps_per_second': 2.081, 'epoch': 3.0}                                                                                                                                                                                    
+{'loss': 0.0307, 'grad_norm': 0.850160539150238, 'learning_rate': 4.9258618458731617e-05, 'epoch': 3.86}                                                                                                 
+{'eval_loss': 0.15989014506340027, 'eval_precision': 1.0, 'eval_recall': 0.9845679012345679, 'eval_f1': 0.9922239502332815, 'eval_accuracy': 0.9994648399871562, 'eval_runtime': 5.3844, 'eval_samples_per_second': 60.174, 'eval_steps_per_second': 2.043, 'epoch': 4.0}                                                                                                                                         
+{'eval_loss': 0.0005560520803555846, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.2247, 'eval_samples_per_second': 62.013, 'eval_steps_per_second': 2.105, 'epoch': 5.0}                                                                                                                                                                                    
+{'train_runtime': 942.8331, 'train_samples_per_second': 25.954, 'train_steps_per_second': 0.414, 'train_loss': 4.86768926962828, 'epoch': 5.0}                                                           
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 195/390 [15:42<15:42,  4.84s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:04<00:00,  2.48it/s]
+[I 2025-11-08 20:29:27,370] Trial 1 finished with value: 1.0 and parameters: {'lr': 6.356610099861216e-05, 'weight_decay': 0.0942919333155175, 'warmup_ratio': 0.20029159323307683, 'batch_size': 16}. Best is trial 0 with value: 1.0.
+{'loss': 69.7152, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 44.6431, 'grad_norm': 361.8839416503906, 'learning_rate': 3.589071095943135e-06, 'epoch': 0.65}                                                                                                 
+{'eval_loss': 1.643492341041565, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_f1': 0.0, 'eval_accuracy': 0.9653216311677192, 'eval_runtime': 8.9806, 'eval_samples_per_second': 36.078, 'eval_steps_per_second': 2.338, 'epoch': 1.0}                                                                                                                                                                         
+{'loss': 2.8921, 'grad_norm': 13.166362762451172, 'learning_rate': 7.2513885407830685e-06, 'epoch': 1.3}                                                                                                 
+{'loss': 0.2942, 'grad_norm': 2.971513032913208, 'learning_rate': 1.0913705985623001e-05, 'epoch': 1.95}                                                                                                 
+{'eval_loss': 0.0009420006535947323, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 9.345, 'eval_samples_per_second': 34.671, 'eval_steps_per_second': 2.247, 'epoch': 2.0}                                                                                                                                                                                     
+{'loss': 0.036, 'grad_norm': 15.344908714294434, 'learning_rate': 1.0034985696925497e-05, 'epoch': 2.6}                                                                                                  
+{'eval_loss': 0.0518278069794178, 'eval_precision': 0.9938650306748467, 'eval_recall': 1.0, 'eval_f1': 0.9969230769230769, 'eval_accuracy': 0.9997859359948624, 'eval_runtime': 9.6244, 'eval_samples_per_second': 33.664, 'eval_steps_per_second': 2.182, 'epoch': 3.0}                                                                                                                                          
+{'loss': 0.0151, 'grad_norm': 0.11293982714414597, 'learning_rate': 9.156265408227993e-06, 'epoch': 3.25}                                                                                                
+{'loss': 0.0209, 'grad_norm': 0.04964546859264374, 'learning_rate': 8.277545119530489e-06, 'epoch': 3.9}                                                                                                 
+{'eval_loss': 0.0004677124961744994, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 9.992, 'eval_samples_per_second': 32.426, 'eval_steps_per_second': 2.102, 'epoch': 4.0}                                                                                                                                                                                     
+{'loss': 0.0211, 'grad_norm': 0.08326355367898941, 'learning_rate': 7.398824830832985e-06, 'epoch': 4.55}                                                                                                
+{'eval_loss': 0.00037718997919000685, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 10.5029, 'eval_samples_per_second': 30.849, 'eval_steps_per_second': 1.999, 'epoch': 5.0}                                                                                                                                                                                  
+{'train_runtime': 1824.1159, 'train_samples_per_second': 13.415, 'train_steps_per_second': 0.422, 'train_loss': 6.289351914842407, 'epoch': 5.0}                                                         
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 385/770 [30:24<30:24,  4.74s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:06<00:00,  3.12it/s]
+[I 2025-11-08 21:00:01,740] Trial 2 finished with value: 1.0 and parameters: {'lr': 1.0913705985623001e-05, 'weight_decay': 0.04234173838804957, 'warmup_ratio': 0.19346949229177599, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 69.7152, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 22.5523, 'grad_norm': 11.101639747619629, 'learning_rate': 2.319975093741627e-05, 'epoch': 0.65}                                                                                                
+{'eval_loss': 0.028193049132823944, 'eval_precision': 0.9938650306748467, 'eval_recall': 1.0, 'eval_f1': 0.9969230769230769, 'eval_accuracy': 0.9997859359948624, 'eval_runtime': 8.7454, 'eval_samples_per_second': 37.048, 'eval_steps_per_second': 2.401, 'epoch': 1.0}                                                                                                                                        
+{'loss': 0.2218, 'grad_norm': 111.98171997070312, 'learning_rate': 4.687296617967777e-05, 'epoch': 1.3}                                                                                                  
+{'loss': 0.042, 'grad_norm': 0.039602238684892654, 'learning_rate': 7.054618142193928e-05, 'epoch': 1.95}                                                                                                
+{'eval_loss': 0.0005144101451151073, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.6067, 'eval_samples_per_second': 37.645, 'eval_steps_per_second': 2.44, 'epoch': 2.0}                                                                                                                                                                                     
+{'loss': 0.0192, 'grad_norm': 6.151137828826904, 'learning_rate': 6.924087200075097e-05, 'epoch': 2.6}                                                                                                   
+{'eval_loss': 0.010318133980035782, 'eval_precision': 1.0, 'eval_recall': 0.9938271604938271, 'eval_f1': 0.9969040247678018, 'eval_accuracy': 0.9997859359948624, 'eval_runtime': 8.0409, 'eval_samples_per_second': 40.294, 'eval_steps_per_second': 2.612, 'epoch': 3.0}                                                                                                                                        
+{'loss': 0.0656, 'grad_norm': 0.028592830523848534, 'learning_rate': 6.317774835795314e-05, 'epoch': 3.25}                                                                                               
+{'loss': 0.0127, 'grad_norm': 0.009755710139870644, 'learning_rate': 5.711462471515534e-05, 'epoch': 3.9}                                                                                                
+{'eval_loss': 0.00016461331688333303, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.0593, 'eval_samples_per_second': 40.202, 'eval_steps_per_second': 2.606, 'epoch': 4.0}                                                                                                                                                                                   
+{'loss': 0.0125, 'grad_norm': 0.33655956387519836, 'learning_rate': 5.105150107235754e-05, 'epoch': 4.55}                                                                                                
+{'eval_loss': 0.000548877811525017, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.8908, 'eval_samples_per_second': 36.442, 'eval_steps_per_second': 2.362, 'epoch': 5.0}                                                                                                                                                                                     
+{'train_runtime': 1747.198, 'train_samples_per_second': 14.005, 'train_steps_per_second': 0.441, 'train_loss': 3.1011647952841472, 'epoch': 5.0}                                                         
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 385/770 [29:07<29:07,  4.54s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:09<00:00,  2.31it/s]
+[I 2025-11-08 21:29:23,492] Trial 3 finished with value: 1.0 and parameters: {'lr': 7.433389586070111e-05, 'weight_decay': 0.021360297140460352, 'warmup_ratio': 0.20317553614755596, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 64.8332, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.03}                                                                                                                                 
+{'eval_loss': 1.6643261909484863, 'eval_precision': 1.0, 'eval_recall': 0.0030864197530864196, 'eval_f1': 0.006153846153846154, 'eval_accuracy': 0.965428663170288, 'eval_runtime': 5.746, 'eval_samples_per_second': 56.387, 'eval_steps_per_second': 1.914, 'epoch': 1.0}                                                                                                                                       
+{'loss': 22.7561, 'grad_norm': 8.62695026397705, 'learning_rate': 2.0526813308294155e-05, 'epoch': 1.29}                                                                                                 
+{'eval_loss': 0.0007111113518476486, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.7085, 'eval_samples_per_second': 56.757, 'eval_steps_per_second': 1.927, 'epoch': 2.0}                                                                                                                                                                                    
+{'loss': 0.1687, 'grad_norm': 1.0432990789413452, 'learning_rate': 4.0913032004887665e-05, 'epoch': 2.58}                                                                                                
+{'eval_loss': 0.002385322004556656, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.7641, 'eval_samples_per_second': 56.21, 'eval_steps_per_second': 1.908, 'epoch': 3.0}                                                                                                                                                                                      
+{'loss': 0.0439, 'grad_norm': 13.177583694458008, 'learning_rate': 3.388330141985542e-05, 'epoch': 3.86}                                                                                                 
+{'eval_loss': 0.0007086683181114495, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.5469, 'eval_samples_per_second': 58.411, 'eval_steps_per_second': 1.983, 'epoch': 4.0}                                                                                                                                                                                    
+{'eval_loss': 0.0003570009139366448, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.3257, 'eval_samples_per_second': 60.837, 'eval_steps_per_second': 2.065, 'epoch': 5.0}                                                                                                                                                                                    
+{'train_runtime': 953.2943, 'train_samples_per_second': 25.669, 'train_steps_per_second': 0.409, 'train_loss': 6.1081163036517605, 'epoch': 5.0}                                                         
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 195/390 [15:53<15:53,  4.89s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:04<00:00,  2.61it/s]
+[I 2025-11-08 21:45:25,499] Trial 4 finished with value: 1.0 and parameters: {'lr': 4.105362661658831e-05, 'weight_decay': 0.010587713280353017, 'warmup_ratio': 0.24887625804963964, 'batch_size': 16}. Best is trial 0 with value: 1.0.
+{'loss': 69.7152, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 36.9903, 'grad_norm': 138.19802856445312, 'learning_rate': 5.887261459885525e-06, 'epoch': 0.65}                                                                                                
+{'eval_loss': 0.8256843686103821, 'eval_precision': 0.9023569023569024, 'eval_recall': 0.8271604938271605, 'eval_f1': 0.8631239935587761, 'eval_accuracy': 0.9909022797816547, 'eval_runtime': 8.7385, 'eval_samples_per_second': 37.077, 'eval_steps_per_second': 2.403, 'epoch': 1.0}                                                                                                                           
+{'loss': 1.6619, 'grad_norm': 19.249698638916016, 'learning_rate': 1.189467111282994e-05, 'epoch': 1.3}                                                                                                  
+{'loss': 0.0832, 'grad_norm': 0.14112628996372223, 'learning_rate': 1.7902080765774354e-05, 'epoch': 1.95}                                                                                               
+{'eval_loss': 0.00034394676913507283, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.0897, 'eval_samples_per_second': 40.051, 'eval_steps_per_second': 2.596, 'epoch': 2.0}                                                                                                                                                                                   
+{'loss': 0.0238, 'grad_norm': 0.23287884891033173, 'learning_rate': 2.2631229850078438e-05, 'epoch': 2.6}                                                                                                
+{'eval_loss': 0.0004920577048324049, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 9.2739, 'eval_samples_per_second': 34.937, 'eval_steps_per_second': 2.264, 'epoch': 3.0}                                                                                                                                                                                    
+{'loss': 0.0097, 'grad_norm': 0.0522451251745224, 'learning_rate': 2.064951094902078e-05, 'epoch': 3.25}                                                                                                 
+{'loss': 0.0036, 'grad_norm': 0.014436817727982998, 'learning_rate': 1.8667792047963125e-05, 'epoch': 3.9}                                                                                               
+{'eval_loss': 0.00031334382947534323, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.329, 'eval_samples_per_second': 38.9, 'eval_steps_per_second': 2.521, 'epoch': 4.0}                                                                                                                                                                                      
+{'loss': 0.0076, 'grad_norm': 0.015210114419460297, 'learning_rate': 1.6686073146905466e-05, 'epoch': 4.55}                                                                                              
+{'eval_loss': 0.00022512012219522148, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.1848, 'eval_samples_per_second': 39.586, 'eval_steps_per_second': 2.566, 'epoch': 5.0}                                                                                                                                                                                   
+{'train_runtime': 1726.101, 'train_samples_per_second': 14.176, 'train_steps_per_second': 0.446, 'train_loss': 5.121590657590271, 'epoch': 5.0}                                                          
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 385/770 [28:46<28:46,  4.48s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:07<00:00,  2.67it/s]
+[I 2025-11-08 22:14:22,660] Trial 5 finished with value: 1.0 and parameters: {'lr': 2.294830487424766e-05, 'weight_decay': 0.09083367283139929, 'warmup_ratio': 0.24793194108456534, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 69.7152, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 14.7428, 'grad_norm': 8.67140007019043, 'learning_rate': 4.997038384077817e-05, 'epoch': 0.65}                                                                                                  
+{'eval_loss': 0.0010395344579592347, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.3579, 'eval_samples_per_second': 38.766, 'eval_steps_per_second': 2.513, 'epoch': 1.0}                                                                                                                                                                                    
+{'loss': 0.0949, 'grad_norm': 0.09504980593919754, 'learning_rate': 4.650503128593919e-05, 'epoch': 1.3}                                                                                                 
+{'loss': 0.012, 'grad_norm': 0.038262125104665756, 'learning_rate': 4.30396787311002e-05, 'epoch': 1.95}                                                                                                 
+{'eval_loss': 0.000283709290670231, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.4801, 'eval_samples_per_second': 38.207, 'eval_steps_per_second': 2.476, 'epoch': 2.0}                                                                                                                                                                                     
+{'loss': 0.0149, 'grad_norm': 0.38512328267097473, 'learning_rate': 3.957432617626121e-05, 'epoch': 2.6}                                                                                                 
+{'eval_loss': 0.00024103824398480356, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.8672, 'eval_samples_per_second': 36.539, 'eval_steps_per_second': 2.368, 'epoch': 3.0}                                                                                                                                                                                   
+{'loss': 0.001, 'grad_norm': 0.01438863668590784, 'learning_rate': 3.610897362142223e-05, 'epoch': 3.25}                                                                                                 
+{'loss': 0.0174, 'grad_norm': 53.112213134765625, 'learning_rate': 3.2643621066583245e-05, 'epoch': 3.9}                                                                                                 
+{'eval_loss': 0.00022155525221023709, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 7.71, 'eval_samples_per_second': 42.023, 'eval_steps_per_second': 2.724, 'epoch': 4.0}                                                                                                                                                                                     
+{'train_runtime': 1372.1363, 'train_samples_per_second': 17.834, 'train_steps_per_second': 0.561, 'train_loss': 2.5954269368515965, 'epoch': 4.0}                                                        
+ 40%|████████████████████████████████████████████████████████████████▊                                                                                                 | 308/770 [22:52<34:18,  4.45s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:06<00:00,  3.09it/s]
+[I 2025-11-08 22:37:25,939] Trial 6 finished with value: 1.0 and parameters: {'lr': 5.1217910760520204e-05, 'weight_decay': 0.02893480495353793, 'warmup_ratio': 0.040191417380314585, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 25.9206, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 7.78, 'grad_norm': 16.631484985351562, 'learning_rate': 2.028026399216338e-05, 'epoch': 0.65}                                                                                                   
+{'eval_loss': 0.00149355991743505, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 7.8134, 'eval_samples_per_second': 41.467, 'eval_steps_per_second': 2.688, 'epoch': 1.0}                                                                                                                                                                                      
+{'loss': 0.0863, 'grad_norm': 19.051057815551758, 'learning_rate': 1.88738656570619e-05, 'epoch': 1.3}                                                                                                   
+{'loss': 0.0146, 'grad_norm': 0.11341259628534317, 'learning_rate': 1.7467467321960416e-05, 'epoch': 1.95}                                                                                               
+{'eval_loss': 0.00032460837974213064, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.023, 'eval_samples_per_second': 40.384, 'eval_steps_per_second': 2.617, 'epoch': 2.0}                                                                                                                                                                                    
+{'loss': 0.0091, 'grad_norm': 0.04271523281931877, 'learning_rate': 1.6061068986858934e-05, 'epoch': 2.6}                                                                                                
+{'eval_loss': 0.0002808541466947645, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.6237, 'eval_samples_per_second': 37.571, 'eval_steps_per_second': 2.435, 'epoch': 3.0}                                                                                                                                                                                    
+{'loss': 0.0047, 'grad_norm': 0.05547241494059563, 'learning_rate': 1.465467065175745e-05, 'epoch': 3.25}                                                                                                
+{'loss': 0.002, 'grad_norm': 0.010084900073707104, 'learning_rate': 1.3248272316655968e-05, 'epoch': 3.9}                                                                                                
+{'eval_loss': 0.00017291822587139904, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.4148, 'eval_samples_per_second': 38.504, 'eval_steps_per_second': 2.496, 'epoch': 4.0}                                                                                                                                                                                   
+{'train_runtime': 1341.2978, 'train_samples_per_second': 18.244, 'train_steps_per_second': 0.574, 'train_loss': 1.3408594886763263, 'epoch': 4.0}                                                        
+ 40%|████████████████████████████████████████████████████████████████▊                                                                                                 | 308/770 [22:21<33:31,  4.35s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:07<00:00,  2.73it/s]
+[I 2025-11-08 22:59:59,636] Trial 7 finished with value: 1.0 and parameters: {'lr': 2.0758439426097885e-05, 'weight_decay': 0.04579817643627842, 'warmup_ratio': 0.041496684329739804, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 25.9206, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.01}                                                                                                                                 
+{'loss': 8.6473, 'grad_norm': 15.406244277954102, 'learning_rate': 2.3639901269543712e-05, 'epoch': 0.65}                                                                                                
+{'eval_loss': 0.0010869649704545736, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 8.4681, 'eval_samples_per_second': 38.261, 'eval_steps_per_second': 2.48, 'epoch': 1.0}                                                                                                                                                                                     
+{'loss': 0.1093, 'grad_norm': 2.625600814819336, 'learning_rate': 4.7762249503772e-05, 'epoch': 1.3}                                                                                                     
+{'loss': 0.0355, 'grad_norm': 0.04619462415575981, 'learning_rate': 7.188459773800028e-05, 'epoch': 1.95}                                                                                                
+{'eval_loss': 0.0007824739441275597, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 9.4081, 'eval_samples_per_second': 34.438, 'eval_steps_per_second': 2.232, 'epoch': 2.0}                                                                                                                                                                                    
+{'loss': 0.2317, 'grad_norm': 13.341489791870117, 'learning_rate': 8.961307053664998e-05, 'epoch': 2.6}                                                                                                  
+{'eval_loss': 0.2808893918991089, 'eval_precision': 0.9906542056074766, 'eval_recall': 0.9814814814814815, 'eval_f1': 0.986046511627907, 'eval_accuracy': 0.999036711976881, 'eval_runtime': 8.9782, 'eval_samples_per_second': 36.088, 'eval_steps_per_second': 2.339, 'epoch': 3.0}                                                                                                                             
+{'loss': 0.1408, 'grad_norm': 0.06059407442808151, 'learning_rate': 8.176604159298535e-05, 'epoch': 3.25}                                                                                                
+{'loss': 0.1126, 'grad_norm': 0.005882555618882179, 'learning_rate': 7.391901264932073e-05, 'epoch': 3.9}                                                                                                
+{'eval_loss': 0.019154656678438187, 'eval_precision': 0.9969230769230769, 'eval_recall': 1.0, 'eval_f1': 0.9984591679506933, 'eval_accuracy': 0.9998929679974312, 'eval_runtime': 7.824, 'eval_samples_per_second': 41.411, 'eval_steps_per_second': 2.684, 'epoch': 4.0}                                                                                                                                         
+{'train_runtime': 1371.8212, 'train_samples_per_second': 17.838, 'train_steps_per_second': 0.561, 'train_loss': 1.5642984921669032, 'epoch': 4.0}                                                        
+ 40%|████████████████████████████████████████████████████████████████▊                                                                                                 | 308/770 [22:51<34:17,  4.45s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [00:06<00:00,  3.02it/s]
+[I 2025-11-08 23:23:01,577] Trial 8 finished with value: 1.0 and parameters: {'lr': 9.11824763253829e-05, 'weight_decay': 0.03947676573360196, 'warmup_ratio': 0.24474186120625158, 'batch_size': 8}. Best is trial 0 with value: 1.0.
+{'loss': 24.3176, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.03}                                                                                                                                 
+{'eval_loss': 4.815147399902344, 'eval_precision': 0.0, 'eval_recall': 0.0, 'eval_f1': 0.0, 'eval_accuracy': 0.9653216311677192, 'eval_runtime': 5.7904, 'eval_samples_per_second': 55.955, 'eval_steps_per_second': 1.9, 'epoch': 1.0}                                                                                                                                                                           
+{'loss': 13.6669, 'grad_norm': 21.112443923950195, 'learning_rate': 6.388104849721793e-06, 'epoch': 1.29}                                                                                                
+{'eval_loss': 0.5489243268966675, 'eval_precision': 0.8991596638655462, 'eval_recall': 0.9907407407407407, 'eval_f1': 0.9427312775330396, 'eval_accuracy': 0.995825751899818, 'eval_runtime': 5.5768, 'eval_samples_per_second': 58.098, 'eval_steps_per_second': 1.972, 'epoch': 2.0}                                                                                                                            
+{'loss': 1.0196, 'grad_norm': 2.2057034969329834, 'learning_rate': 1.2906579186172602e-05, 'epoch': 2.58}                                                                                                
+{'eval_loss': 0.0013453636784106493, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.679, 'eval_samples_per_second': 57.052, 'eval_steps_per_second': 1.937, 'epoch': 3.0}                                                                                                                                                                                     
+{'loss': 0.0151, 'grad_norm': 0.16642890870571136, 'learning_rate': 1.1425107746070146e-05, 'epoch': 3.86}                                                                                               
+{'eval_loss': 0.0004559328663162887, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 6.1476, 'eval_samples_per_second': 52.703, 'eval_steps_per_second': 1.789, 'epoch': 4.0}                                                                                                                                                                                    
+{'eval_loss': 0.00047049697604961693, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.173, 'eval_samples_per_second': 62.633, 'eval_steps_per_second': 2.126, 'epoch': 5.0}                                                                                                                                                                                    
+{'loss': 0.0089, 'grad_norm': 1.6635881662368774, 'learning_rate': 9.054753441906214e-06, 'epoch': 5.13}                                                                                                 
+{'eval_loss': 0.00048126999172382057, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.9281, 'eval_samples_per_second': 54.655, 'eval_steps_per_second': 1.856, 'epoch': 6.0}                                                                                                                                                                                   
+{'train_runtime': 1114.6488, 'train_samples_per_second': 21.953, 'train_steps_per_second': 0.35, 'train_loss': 3.1891666926188855, 'epoch': 6.0}                                                         
+ 60%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                                                | 234/390 [18:34<12:23,  4.76s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:04<00:00,  2.65it/s]
+[I 2025-11-08 23:41:43,494] Trial 9 finished with value: 1.0 and parameters: {'lr': 1.3558426619817684e-05, 'weight_decay': 0.042809593464245614, 'warmup_ratio': 0.2661966730334727, 'batch_size': 16}. Best is trial 0 with value: 1.0.
+Best trial: 0. Best value: 1: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [3:45:06<00:00, 1350.68s/it]
+
+Best params: {'lr': 7.053036272094794e-05, 'weight_decay': 0.09410357905238109, 'warmup_ratio': 0.2850536451820843, 'batch_size': 16}
+Best F1: 1.0000
+wandb: 
+wandb: Run history:
+wandb:   xlm-roberta-base/best_batch_size ▁
+wandb:           xlm-roberta-base/best_lr ▁
+wandb:  xlm-roberta-base/best_trial_value ▁
+wandb: xlm-roberta-base/best_value_so_far ▁▁▁▁▁▁▁▁▁▁
+wandb: xlm-roberta-base/best_warmup_ratio ▁
+wandb: xlm-roberta-base/best_weight_decay ▁
+wandb:  xlm-roberta-base/trial_batch_size ██▁▁█▁▁▁▁█
+wandb:          xlm-roberta-base/trial_lr ▆▆▁▇▄▂▅▂█▁
+wandb:      xlm-roberta-base/trial_number ▁▂▃▃▄▅▆▆▇█
+wandb:       xlm-roberta-base/trial_value ▁▁▁▁▁▁▁▁▁▁
+wandb:                                 +2 ...
+wandb: 
+wandb: Run summary:
+wandb:   xlm-roberta-base/best_batch_size 16
+wandb:           xlm-roberta-base/best_lr 7e-05
+wandb:  xlm-roberta-base/best_trial_value 1
+wandb: xlm-roberta-base/best_value_so_far 1
+wandb: xlm-roberta-base/best_warmup_ratio 0.28505
+wandb: xlm-roberta-base/best_weight_decay 0.0941
+wandb:  xlm-roberta-base/trial_batch_size 16
+wandb:          xlm-roberta-base/trial_lr 1e-05
+wandb:      xlm-roberta-base/trial_number 9
+wandb:       xlm-roberta-base/trial_value 1
+wandb:                                 +2 ...
+wandb: 
+wandb: 🚀 View run xlm-roberta-base_hyperparameter_search at: https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf/runs/3gd0d70l
+wandb: ⭐️ View project at: https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251108_195629-3gd0d70l/logs
+
+Training final model for xlm-roberta-base...
+wandb: Tracking run with wandb version 0.22.3
+wandb: Run data is saved locally in /workspace/wandb/run-20251108_234145-fb8hqx64
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run xlm-roberta-base_xaji0y
+wandb: ⭐️ View project at https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf
+wandb: 🚀 View run at https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf/runs/fb8hqx64
+{'loss': 45.8758, 'grad_norm': inf, 'learning_rate': 0.0, 'epoch': 0.03}                                                                                                                                 
+{'eval_loss': 0.33134353160858154, 'eval_precision': 0.9073033707865169, 'eval_recall': 0.9969135802469136, 'eval_f1': 0.95, 'eval_accuracy': 0.9963609119126619, 'eval_runtime': 5.528, 'eval_samples_per_second': 58.611, 'eval_steps_per_second': 1.99, 'epoch': 1.0}                                                                                                                                          
+{'loss': 11.9656, 'grad_norm': 2.3773066997528076, 'learning_rate': 4.8575498575498576e-05, 'epoch': 1.29}                                                                                               
+{'eval_loss': 0.0004113161994609982, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.6529, 'eval_samples_per_second': 57.315, 'eval_steps_per_second': 1.946, 'epoch': 2.0}                                                                                                                                                                                    
+{'loss': 0.0263, 'grad_norm': 1.4204306602478027, 'learning_rate': 4.145299145299146e-05, 'epoch': 2.58}                                                                                                 
+{'eval_loss': 0.001295634312555194, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.3841, 'eval_samples_per_second': 60.177, 'eval_steps_per_second': 2.043, 'epoch': 3.0}                                                                                                                                                                                     
+{'loss': 0.0109, 'grad_norm': 26.043760299682617, 'learning_rate': 3.433048433048433e-05, 'epoch': 3.86}                                                                                                 
+{'eval_loss': 0.0003082575567532331, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 4.8175, 'eval_samples_per_second': 67.254, 'eval_steps_per_second': 2.283, 'epoch': 4.0}                                                                                                                                                                                    
+{'eval_loss': 0.00024322816170752048, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_accuracy': 1.0, 'eval_runtime': 5.9404, 'eval_samples_per_second': 54.542, 'eval_steps_per_second': 1.852, 'epoch': 5.0}                                                                                                                                                                                   
+{'train_runtime': 959.7409, 'train_samples_per_second': 25.496, 'train_steps_per_second': 0.406, 'train_loss': 3.254494039523296, 'epoch': 5.0}                                                          
+ 50%|█████████████████████████████████████████████████████████████████████████████████                                                                                 | 195/390 [15:59<15:59,  4.92s/it]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:03<00:00,  3.07it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  2.97it/s]early stopping required metric_for_best_model, but did not find eval_f1 so early stopping is disabled
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  3.19it/s]
+
+xlm-roberta-base Results:
+  Dev F1: 1.0000
+  Dev Acc: 1.0000
+  OOD F1: 0.8657
+  OOD Acc: 0.9821
+wandb: 
+wandb: Run history:
+wandb:   dev/accuracy ▁
+wandb:         dev/f1 ▁
+wandb:  dev/precision ▁
+wandb:     dev/recall ▁
+wandb:   ood/accuracy ▁
+wandb:         ood/f1 ▁
+wandb:  ood/precision ▁
+wandb:     ood/recall ▁
+wandb: summary/dev_f1 ▁
+wandb: summary/ood_f1 ▁
+wandb:             +5 ...
+wandb: 
+wandb: Run summary:
+wandb:   dev/accuracy 1
+wandb:         dev/f1 1
+wandb:  dev/precision 1
+wandb:     dev/recall 1
+wandb:   ood/accuracy 0.9821
+wandb:         ood/f1 0.86567
+wandb:  ood/precision 0.76991
+wandb:     ood/recall 0.98864
+wandb: summary/dev_f1 1
+wandb: summary/ood_f1 0.86567
+wandb:             +5 ...
+wandb: 
+wandb: 🚀 View run xlm-roberta-base_xaji0y at: https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf/runs/fb8hqx64
+wandb: ⭐️ View project at: https://wandb.ai/architk2003-sapienza-universit-di-roma/sentance-splitting-encoder-crf
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251108_234145-fb8hqx64/logs
+Traceback (most recent call last):
+  File "/workspace/train_encoders_crf.py", line 572, in <module>
+    main()
+  File "/workspace/train_encoders_crf.py", line 543, in main
+    del trainer, train_dataset, dev_dataset, ood_dataset, tokenizer, model
+                                                                     ^^^^^
+UnboundLocalError: cannot access local variable 'model' where it is not associat
