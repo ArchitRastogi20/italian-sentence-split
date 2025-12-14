@@ -1,0 +1,95 @@
+================================================================================
+FILE STRUCTURE ANALYSIS
+================================================================================
+
+TRAIN: data\manzoni_dev_tokens.csv
+--------------------------------------------------------------------------------
+  Standard read successful
+  Columns: ['token', 'label']
+  Shape (first 10 rows): (10, 2)
+  Dtypes:
+token    object
+label     int64
+dtype: object
+
+  First 5 rows:
+  token  label
+0    Il      0
+1  duca      0
+2   che      0
+3     ,      0
+4    in      0
+
+  Total lines: 9344
+  Header columns: 2
+  Found 5 inconsistent rows:
+    Line 4: 3 columns
+    Line 9: 3 columns
+    Line 22: 3 columns
+    Line 30: 3 columns
+    Line 48: 3 columns
+
+DEV: data\manzoni_train_tokens.csv
+--------------------------------------------------------------------------------
+  Standard read successful
+  Columns: ['token', 'label']
+  Shape (first 10 rows): (10, 2)
+  Dtypes:
+token    object
+label     int64
+dtype: object
+
+  First 5 rows:
+  token  label
+0  Quel      0
+1  ramo      0
+2   del      0
+3  lago      0
+4    di      0
+
+  Total lines: 74765
+  Header columns: 2
+  Found 5 inconsistent rows:
+    Line 7: 3 columns
+    Line 12: 3 columns
+    Line 20: 3 columns
+    Line 27: 3 columns
+    Line 37: 3 columns
+
+OOD: data\OOD_test.csv
+--------------------------------------------------------------------------------
+  Standard read successful
+  Columns: ['pinocchio_test_tokens']
+  Shape (first 10 rows): (10, 1)
+  Dtypes:
+pinocchio_test_tokens    object
+dtype: object
+
+  First 5 rows:
+  pinocchio_test_tokens
+0           token;label
+1                  C';0
+2                 era;0
+3                 una;0
+4               volta;0
+
+  Total lines: 1524
+  Header columns: 1
+  Found 5 inconsistent rows:
+    Line 21: 2 columns
+    Line 23: 2 columns
+    Line 42: 2 columns
+    Line 49: 2 columns
+    Line 76: 2 columns
+
+================================================================================
+LABEL DISTRIBUTION
+================================================================================
+
+TRAIN:
+{0: 9019, 1: 324}
+  Class balance: {0: 0.9653216311677192, 1: 0.03467836883228085}
+
+DEV:
+{0: 72317, 1: 2447}
+  Class balance: {0: 0.9672703440158364, 1: 0.032729655984163504}
