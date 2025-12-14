@@ -1,0 +1,22 @@
+Model: bert-italian-base
+Model Path: ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-base
+Base Model: dbmdz/bert-base-italian-xxl-cased
+Model Type: Base Encoder
+HuggingFace Link: https://huggingface.co/ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-base
+
+Metrics:
+Accuracy:  0.9629
+Precision: 0.6630
+Recall:    0.6932
+F1 Score:  0.6778
+
+Classification Report:
+              precision    recall  f1-score   support
+
+No Split (0)     0.9816    0.9790    0.9803      1475
+   Split (1)     0.6630    0.6932    0.6778        88
+
+    accuracy                         0.9629      1563
+   macro avg     0.8223    0.8361    0.8290      1563
+weighted avg     0.9637    0.9629    0.9633      1563
+

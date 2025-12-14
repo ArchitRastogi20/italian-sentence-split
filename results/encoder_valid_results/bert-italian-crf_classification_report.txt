@@ -1,0 +1,22 @@
+Model: bert-italian-crf
+Model Path: ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-CRF
+Base Model: dbmdz/bert-base-italian-xxl-cased
+Model Type: CRF
+HuggingFace Link: https://huggingface.co/ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-CRF
+
+Metrics:
+Accuracy:  0.9873
+Precision: 0.7713
+Recall:    0.7809
+F1 Score:  0.7761
+
+Classification Report:
+              precision    recall  f1-score   support
+
+No Split (0)     0.9936    0.9933    0.9935     11179
+   Split (1)     0.7713    0.7809    0.7761       324
+
+    accuracy                         0.9873     11503
+   macro avg     0.8825    0.8871    0.8848     11503
+weighted avg     0.9874    0.9873    0.9873     11503
+

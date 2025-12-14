@@ -2,4 +2,5 @@ model_name,model_type,huggingface_link,accuracy,precision,recall,f1
 xlm-roberta-crf,CRF,https://huggingface.co/ArchitRastogi/xlm-roberta-base-italian-sentence-splitter-CRF,0.9820954907161804,0.7699115044247787,0.9886363636363636,0.8656716417910447
 bert-italian-base,Base,https://huggingface.co/ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-base,0.9628918746001279,0.6630434782608695,0.6931818181818182,0.6777777777777778
 bert-italian-crf,CRF,https://huggingface.co/ArchitRastogi/bert-base-italian-xxl-cased-sentence-splitter-CRF,0.9552143314139475,0.59375,0.6477272727272727,0.6195652173913043
-
+modernbert-crf,CRF,https://huggingface.co/ArchitRastogi/ModernBERT-italian-sentence-splitter-CRF,0.9436980166346769,0.0,0.0,0.0
+modernbert-base,Base,https://huggingface.co/ArchitRastogi/ModernBERT-italian-sentence-splitter-base,0.9436980166346769,0.0,0.0,0.0

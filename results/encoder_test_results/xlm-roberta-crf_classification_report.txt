@@ -1,0 +1,22 @@
+Model: xlm-roberta-crf
+Model Path: ArchitRastogi/xlm-roberta-base-italian-sentence-splitter-CRF
+Base Model: FacebookAI/xlm-roberta-base
+Model Type: CRF
+HuggingFace Link: https://huggingface.co/ArchitRastogi/xlm-roberta-base-italian-sentence-splitter-CRF
+
+Metrics:
+Accuracy:  0.9821
+Precision: 0.7699
+Recall:    0.9886
+F1 Score:  0.8657
+
+Classification Report:
+              precision    recall  f1-score   support
+
+No Split (0)     0.9993    0.9817    0.9904      1420
+   Split (1)     0.7699    0.9886    0.8657        88
+
+    accuracy                         0.9821      1508
+   macro avg     0.8846    0.9852    0.9280      1508
+weighted avg     0.9859    0.9821    0.9831      1508
+
