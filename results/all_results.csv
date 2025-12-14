@@ -1,0 +1,13 @@
+family,model,embedding,crf,split,accuracy,precision,recall,F1
+encoder,bert-italian-base,bert-italian,False,test,0.9629,0.663,0.6932,0.6778
+encoder,bert-italian-crf,bert-italian,True,test,0.9552,0.5938,0.6477,0.6196
+encoder,xlm-roberta-crf,xlm-roberta,True,test,0.9821,0.7699,0.9886,0.8657
+xgboost,xgboost,paraphrase-multilingual-mnilm-l12-v2,False,test,0.994,1.0,0.8977,0.9461
+xgboost,xgboost,ArchitRastogi/bert-base-italian-embeddings,False,test,0.9972,0.9627,0.9568,0.9598
+xgboost,xgboost,TfIDF,False,test,0.9244,0.0357,0.0113,0.0172
+encoder,bert-italian-base,bert-italian,False,val,0.991,0.8595,0.8117,0.8349
+encoder,bert-italian-crf,bert-italian,True,val,0.9873,0.7713,0.7809,0.7761
+encoder,xlm-roberta-crf,xlm-roberta,True,val,1.0,1.0,1.0,1.0
+xgboost,xgboost,paraphrase-multilingual-mnilm-l12-v2,False,val,0.995825751899818,0.9581993569131833,0.9197530864197531,0.9385826771653544
+xgboost,xgboost,ArchitRastogi/bert-base-italian-embeddings,False,val,0.997217167933212,0.9627329192546584,0.9567901234567902,0.9597523219814241
+xgboost,xgboost,TfIDF,False,val,0.9438588179557029,0.09239130434782608,0.05246913580246913,0.06692913385826772
