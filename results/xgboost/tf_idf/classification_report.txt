@@ -1,0 +1,20 @@
+=== DEV SET ===
+              precision    recall  f1-score   support
+
+           0     0.9628    0.9794    0.9711      8119
+           1     0.0924    0.0525    0.0669       324
+
+    accuracy                         0.9439      8443
+   macro avg     0.5276    0.5160    0.5190      8443
+weighted avg     0.9294    0.9439    0.9364      8443
+
+
+=== TEST SET ===
+              precision    recall  f1-score   support
+
+           0     0.9412    0.9810    0.9607      1420
+           1     0.0357    0.0114    0.0172        88
+
+    accuracy                         0.9244      1508
+   macro avg     0.4885    0.4962    0.4890      1508
+weighted avg     0.8884    0.9244    0.9056      1508
