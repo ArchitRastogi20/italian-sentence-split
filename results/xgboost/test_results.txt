@@ -1,0 +1,104 @@
+XGBoost Sentence Splitting - Test Results
+Model: outputs/xgboost_model.json
+================================================================================
+
+================================================================================
+Dev Set Evaluation Results
+================================================================================
+
+Overall Metrics:
+  Accuracy:  0.9958
+  Precision: 0.9582
+  Recall:    0.9198
+  F1 Score:  0.9386
+
+Classification Report:
+              precision    recall  f1-score   support
+
+No Split (0)       1.00      1.00      1.00      9019
+   Split (1)       0.96      0.92      0.94       324
+
+    accuracy                           1.00      9343
+   macro avg       0.98      0.96      0.97      9343
+weighted avg       1.00      1.00      1.00      9343
+
+
+Confusion Matrix:
+                 Predicted
+                 0      1
+Actual  0       9006     13
+        1         26    298
+
+Sample Misclassifications (first 10):
+--------------------------------------------------------------------------------
+Token: '.'
+  True label: 0, Predicted: 1, Probability: 0.8584
+Token: '…'
+  True label: 1, Predicted: 0, Probability: 0.2280
+Token: '!'
+  True label: 0, Predicted: 1, Probability: 0.8536
+Token: '…'
+  True label: 1, Predicted: 0, Probability: 0.1528
+Token: ':'
+  True label: 0, Predicted: 1, Probability: 0.5299
+Token: '»'
+  True label: 1, Predicted: 0, Probability: 0.3955
+Token: '»'
+  True label: 1, Predicted: 0, Probability: 0.2397
+Token: '»'
+  True label: 1, Predicted: 0, Probability: 0.3399
+Token: '.'
+  True label: 0, Predicted: 1, Probability: 0.8950
+Token: '!'
+  True label: 1, Predicted: 0, Probability: 0.1317
+
+
+================================================================================
+OOD Set Evaluation Results
+================================================================================
+
+Overall Metrics:
+  Accuracy:  0.9940
+  Precision: 1.0000
+  Recall:    0.8977
+  F1 Score:  0.9461
+
+Classification Report:
+              precision    recall  f1-score   support
+
+No Split (0)       0.99      1.00      1.00      1420
+   Split (1)       1.00      0.90      0.95        88
+
+    accuracy                           0.99      1508
+   macro avg       1.00      0.95      0.97      1508
+weighted avg       0.99      0.99      0.99      1508
+
+
+Confusion Matrix:
+                 Predicted
+                 0      1
+Actual  0       1420      0
+        1          9     79
+
+Sample Misclassifications (first 10):
+--------------------------------------------------------------------------------
+Token: ':'
+  True label: 1, Predicted: 0, Probability: 0.1650
+Token: '.'
+  True label: 1, Predicted: 0, Probability: 0.4502
+Token: '!'
+  True label: 1, Predicted: 0, Probability: 0.1200
+Token: '.'
+  True label: 1, Predicted: 0, Probability: 0.4404
+Token: '?'
+  True label: 1, Predicted: 0, Probability: 0.3000
+Token: '.'
+  True label: 1, Predicted: 0, Probability: 0.3556
+Token: '.'
+  True label: 1, Predicted: 0, Probability: 0.1703
+Token: 'fatta'
+  True label: 1, Predicted: 0, Probability: 0.0012
+Token: '!'
+  True label: 1, Predicted: 0, Probability: 0.4246
+
+
