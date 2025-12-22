@@ -17,7 +17,7 @@ from stratagies_src.utils import (
     print_metrics,
     get_data_paths,
 )
-from prompts.prompts import parse_model_output
+from archieved_prompts.prompts import parse_model_output
 
 STRATEGY_ID = 5
 STRATEGY_NAME = "few_shot_hard"
