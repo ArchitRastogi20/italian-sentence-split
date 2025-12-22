@@ -4,3 +4,4 @@ __pycache__
 models
 *.log
 .env
+strat.MD
