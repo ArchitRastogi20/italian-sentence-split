@@ -1,6 +1,6 @@
 logs
 data
-__pycache__
+*__pycache__
 models
 *.log
 .env
