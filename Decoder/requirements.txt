@@ -1,0 +1,16 @@
+torch
+transformers
+accelerate
+bitsandbytes
+safetensors
+requests
+python-dotenv
+tqdm
+pandas
+numpy
+scikit-learn
+auto-gptq
+huggingface_hub
+hf-transfer
+matplotlib
+seaborn
