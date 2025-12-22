@@ -1,0 +1,1013 @@
+[0;32m========================================[0m
+[0;32mSentence Splitting - 7 Strategies[0m
+[0;32m========================================[0m
+
+[1;33mChecking CUDA...[0m
+CUDA: True, Device: NVIDIA RTX A4500
+
+[0;32mRunning ALL strategies with LOCAL models on dev+ood[0m
+`torch_dtype` is deprecated! Use `dtype` instead!
+Running strategies: [1, 2, 3, 4, 5, 6, 7]
+Models: ['llama-3.1-8b', 'qwen3-8b']
+Datasets: ['dev', 'ood']
+
+============================================================
+[1/28] Strategy 1 (sliding_window) - llama-3.1-8b - dev
+============================================================
+
+Strategy 1: Sliding Window Binary Classification
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+  Found 626 punctuation marks to classify
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [02:06<06:20, 126.67s/it]Fetching 4 files:  50%|█████     | 2/4 [02:06<01:44, 52.26s/it] Fetching 4 files: 100%|██████████| 4/4 [02:06<00:00, 31.71s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.70it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.67it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.68it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.40it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.07it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Classifying:   0%|          | 0/40 [00:00<?, ?it/s]Classifying:   2%|▎         | 1/40 [00:01<00:44,  1.15s/it]Classifying:   5%|▌         | 2/40 [00:01<00:35,  1.07it/s]Classifying:   8%|▊         | 3/40 [00:02<00:31,  1.16it/s]Classifying:  10%|█         | 4/40 [00:03<00:29,  1.21it/s]Classifying:  12%|█▎        | 5/40 [00:04<00:28,  1.23it/s]Classifying:  15%|█▌        | 6/40 [00:05<00:27,  1.24it/s]Classifying:  18%|█▊        | 7/40 [00:05<00:26,  1.26it/s]Classifying:  20%|██        | 8/40 [00:06<00:24,  1.29it/s]Classifying:  22%|██▎       | 9/40 [00:07<00:24,  1.29it/s]Classifying:  25%|██▌       | 10/40 [00:08<00:23,  1.28it/s]Classifying:  28%|██▊       | 11/40 [00:08<00:22,  1.27it/s]Classifying:  30%|███       | 12/40 [00:09<00:21,  1.27it/s]Classifying:  32%|███▎      | 13/40 [00:10<00:20,  1.30it/s]Classifying:  35%|███▌      | 14/40 [00:11<00:20,  1.30it/s]Classifying:  38%|███▊      | 15/40 [00:12<00:19,  1.29it/s]Classifying:  40%|████      | 16/40 [00:12<00:18,  1.29it/s]Classifying:  42%|████▎     | 17/40 [00:13<00:17,  1.29it/s]Classifying:  45%|████▌     | 18/40 [00:14<00:17,  1.29it/s]Classifying:  48%|████▊     | 19/40 [00:15<00:16,  1.29it/s]Classifying:  50%|█████     | 20/40 [00:15<00:15,  1.31it/s]Classifying:  52%|█████▎    | 21/40 [00:16<00:14,  1.30it/s]Classifying:  55%|█████▌    | 22/40 [00:17<00:13,  1.30it/s]Classifying:  57%|█████▊    | 23/40 [00:18<00:13,  1.30it/s]Classifying:  60%|██████    | 24/40 [00:18<00:12,  1.31it/s]Classifying:  62%|██████▎   | 25/40 [00:19<00:11,  1.30it/s]Classifying:  65%|██████▌   | 26/40 [00:20<00:10,  1.30it/s]Classifying:  68%|██████▊   | 27/40 [00:21<00:10,  1.28it/s]Classifying:  70%|███████   | 28/40 [00:22<00:09,  1.28it/s]Classifying:  72%|███████▎  | 29/40 [00:22<00:08,  1.28it/s]Classifying:  75%|███████▌  | 30/40 [00:23<00:07,  1.30it/s]Classifying:  78%|███████▊  | 31/40 [00:24<00:06,  1.32it/s]Classifying:  80%|████████  | 32/40 [00:25<00:06,  1.33it/s]Classifying:  82%|████████▎ | 33/40 [00:25<00:05,  1.34it/s]Classifying:  85%|████████▌ | 34/40 [00:26<00:04,  1.32it/s]Classifying:  88%|████████▊ | 35/40 [00:27<00:03,  1.30it/s]Classifying:  90%|█████████ | 36/40 [00:28<00:03,  1.32it/s]Classifying:  92%|█████████▎| 37/40 [00:28<00:02,  1.30it/s]Classifying:  95%|█████████▌| 38/40 [00:29<00:01,  1.29it/s]Classifying:  98%|█████████▊| 39/40 [00:30<00:00,  1.27it/s]Classifying: 100%|██████████| 40/40 [00:30<00:00,  1.69it/s]Classifying: 100%|██████████| 40/40 [00:30<00:00,  1.31it/s]
+
+============================================================
+Results for llama-3.1-8b with strategy_1
+============================================================
+Accuracy:  0.9653
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9019      0
+  Actual 1:   324      0
+============================================================
+
+Saved predictions to /workspace/results/dev/sliding_window_1/llama_3.1_8b.csv
+
+============================================================
+[2/28] Strategy 1 (sliding_window) - llama-3.1-8b - ood
+============================================================
+
+Strategy 1: Sliding Window Binary Classification
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+  Found 128 punctuation marks to classify
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.71it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.69it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.70it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.42it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.10it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Classifying:   0%|          | 0/8 [00:00<?, ?it/s]Classifying:  12%|█▎        | 1/8 [00:00<00:05,  1.25it/s]Classifying:  25%|██▌       | 2/8 [00:01<00:04,  1.25it/s]Classifying:  38%|███▊      | 3/8 [00:02<00:03,  1.26it/s]Classifying:  50%|█████     | 4/8 [00:03<00:03,  1.25it/s]Classifying:  62%|██████▎   | 5/8 [00:03<00:02,  1.25it/s]Classifying:  75%|███████▌  | 6/8 [00:04<00:01,  1.25it/s]Classifying:  88%|████████▊ | 7/8 [00:05<00:00,  1.25it/s]Classifying: 100%|██████████| 8/8 [00:06<00:00,  1.26it/s]Classifying: 100%|██████████| 8/8 [00:06<00:00,  1.25it/s]
+
+============================================================
+Results for llama-3.1-8b with strategy_1
+============================================================
+Accuracy:  0.9376
+Precision: 0.6667
+Recall:    0.0208
+F1 Score:  0.0404
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1425      1
+  Actual 1:    94      2
+============================================================
+
+Saved predictions to /workspace/results/ood/sliding_window_1/llama_3.1_8b.csv
+
+============================================================
+[3/28] Strategy 1 (sliding_window) - qwen3-8b - dev
+============================================================
+
+Strategy 1: Sliding Window Binary Classification
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+  Found 626 punctuation marks to classify
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [02:10<08:40, 130.20s/it]Fetching 5 files:  40%|████      | 2/5 [02:11<02:42, 54.24s/it] Fetching 5 files: 100%|██████████| 5/5 [02:11<00:00, 26.26s/it]
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.04it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.05it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.98it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.00it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.68it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.33it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Classifying:   0%|          | 0/40 [00:00<?, ?it/s]Classifying:   2%|▎         | 1/40 [00:01<00:44,  1.14s/it]Classifying:   5%|▌         | 2/40 [00:02<00:43,  1.14s/it]Classifying:   8%|▊         | 3/40 [00:03<00:41,  1.13s/it]Classifying:  10%|█         | 4/40 [00:04<00:40,  1.13s/it]Classifying:  12%|█▎        | 5/40 [00:05<00:39,  1.13s/it]Classifying:  15%|█▌        | 6/40 [00:06<00:38,  1.13s/it]Classifying:  18%|█▊        | 7/40 [00:07<00:37,  1.13s/it]Classifying:  20%|██        | 8/40 [00:08<00:35,  1.11s/it]Classifying:  22%|██▎       | 9/40 [00:10<00:34,  1.12s/it]Classifying:  25%|██▌       | 10/40 [00:11<00:33,  1.12s/it]Classifying:  28%|██▊       | 11/40 [00:12<00:32,  1.13s/it]Classifying:  30%|███       | 12/40 [00:13<00:31,  1.13s/it]Classifying:  32%|███▎      | 13/40 [00:14<00:30,  1.12s/it]Classifying:  35%|███▌      | 14/40 [00:15<00:28,  1.11s/it]Classifying:  38%|███▊      | 15/40 [00:16<00:27,  1.12s/it]Classifying:  40%|████      | 16/40 [00:17<00:26,  1.12s/it]Classifying:  42%|████▎     | 17/40 [00:19<00:25,  1.11s/it]Classifying:  45%|████▌     | 18/40 [00:20<00:24,  1.12s/it]Classifying:  48%|████▊     | 19/40 [00:21<00:23,  1.13s/it]Classifying:  50%|█████     | 20/40 [00:22<00:22,  1.12s/it]Classifying:  52%|█████▎    | 21/40 [00:23<00:21,  1.11s/it]Classifying:  55%|█████▌    | 22/40 [00:24<00:19,  1.10s/it]Classifying:  57%|█████▊    | 23/40 [00:25<00:18,  1.10s/it]Classifying:  60%|██████    | 24/40 [00:26<00:17,  1.09s/it]Classifying:  62%|██████▎   | 25/40 [00:27<00:16,  1.11s/it]Classifying:  65%|██████▌   | 26/40 [00:29<00:15,  1.12s/it]Classifying:  68%|██████▊   | 27/40 [00:30<00:14,  1.13s/it]Classifying:  70%|███████   | 28/40 [00:31<00:13,  1.13s/it]Classifying:  72%|███████▎  | 29/40 [00:32<00:12,  1.14s/it]Classifying:  75%|███████▌  | 30/40 [00:33<00:11,  1.12s/it]Classifying:  78%|███████▊  | 31/40 [00:34<00:10,  1.11s/it]Classifying:  80%|████████  | 32/40 [00:35<00:08,  1.11s/it]Classifying:  82%|████████▎ | 33/40 [00:36<00:07,  1.10s/it]Classifying:  85%|████████▌ | 34/40 [00:37<00:06,  1.10s/it]Classifying:  88%|████████▊ | 35/40 [00:39<00:05,  1.11s/it]Classifying:  90%|█████████ | 36/40 [00:40<00:04,  1.11s/it]Classifying:  92%|█████████▎| 37/40 [00:41<00:03,  1.12s/it]Classifying:  95%|█████████▌| 38/40 [00:42<00:02,  1.13s/it]Classifying:  98%|█████████▊| 39/40 [00:43<00:01,  1.14s/it]Classifying: 100%|██████████| 40/40 [00:44<00:00,  1.07it/s]Classifying: 100%|██████████| 40/40 [00:44<00:00,  1.10s/it]
+
+============================================================
+Results for qwen3-8b with strategy_1
+============================================================
+Accuracy:  0.9653
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9019      0
+  Actual 1:   324      0
+============================================================
+
+Saved predictions to /workspace/results/dev/sliding_window_1/qwen3_8b.csv
+
+============================================================
+[4/28] Strategy 1 (sliding_window) - qwen3-8b - ood
+============================================================
+
+Strategy 1: Sliding Window Binary Classification
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+  Found 128 punctuation marks to classify
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:01,  1.97it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.85it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  2.00it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.67it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.30it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Classifying:   0%|          | 0/8 [00:00<?, ?it/s]Classifying:  12%|█▎        | 1/8 [00:01<00:08,  1.15s/it]Classifying:  25%|██▌       | 2/8 [00:02<00:06,  1.15s/it]Classifying:  38%|███▊      | 3/8 [00:03<00:05,  1.13s/it]Classifying:  50%|█████     | 4/8 [00:04<00:04,  1.15s/it]Classifying:  62%|██████▎   | 5/8 [00:05<00:03,  1.15s/it]Classifying:  75%|███████▌  | 6/8 [00:06<00:02,  1.15s/it]Classifying:  88%|████████▊ | 7/8 [00:08<00:01,  1.15s/it]Classifying: 100%|██████████| 8/8 [00:09<00:00,  1.15s/it]Classifying: 100%|██████████| 8/8 [00:09<00:00,  1.15s/it]
+
+============================================================
+Results for qwen3-8b with strategy_1
+============================================================
+Accuracy:  0.9369
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1426      0
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/sliding_window_1/qwen3_8b.csv
+
+============================================================
+[5/28] Strategy 2 (next_token_prob) - llama-3.1-8b - dev
+============================================================
+
+Strategy 2: Next-Token Probability Analysis
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+Threshold: 0.15
+  Found 626 punctuation marks to analyze
+  Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.71s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.74s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.75s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.22s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.41s/it]
+Analyzing probabilities:   0%|          | 0/626 [00:00<?, ?it/s]Analyzing probabilities:   0%|          | 3/626 [00:00<00:24, 25.53it/s]Analyzing probabilities:   1%|          | 6/626 [00:00<00:24, 25.42it/s]Analyzing probabilities:   1%|▏         | 9/626 [00:00<00:24, 25.35it/s]Analyzing probabilities:   2%|▏         | 12/626 [00:00<00:24, 25.10it/s]Analyzing probabilities:   2%|▏         | 15/626 [00:00<00:24, 25.16it/s]Analyzing probabilities:   3%|▎         | 18/626 [00:00<00:24, 24.89it/s]Analyzing probabilities:   3%|▎         | 21/626 [00:00<00:24, 24.55it/s]Analyzing probabilities:   4%|▍         | 24/626 [00:00<00:24, 24.61it/s]Analyzing probabilities:   4%|▍         | 27/626 [00:01<00:24, 24.87it/s]Analyzing probabilities:   5%|▍         | 30/626 [00:01<00:24, 24.82it/s]Analyzing probabilities:   5%|▌         | 33/626 [00:01<00:23, 25.00it/s]Analyzing probabilities:   6%|▌         | 36/626 [00:01<00:23, 25.13it/s]Analyzing probabilities:   6%|▌         | 39/626 [00:01<00:23, 25.20it/s]Analyzing probabilities:   7%|▋         | 42/626 [00:01<00:23, 25.19it/s]Analyzing probabilities:   7%|▋         | 45/626 [00:01<00:23, 25.24it/s]Analyzing probabilities:   8%|▊         | 48/626 [00:01<00:23, 25.06it/s]Analyzing probabilities:   8%|▊         | 51/626 [00:02<00:23, 24.87it/s]Analyzing probabilities:   9%|▊         | 54/626 [00:02<00:23, 24.74it/s]Analyzing probabilities:   9%|▉         | 57/626 [00:02<00:22, 24.89it/s]Analyzing probabilities:  10%|▉         | 60/626 [00:02<00:22, 24.70it/s]Analyzing probabilities:  10%|█         | 63/626 [00:02<00:22, 24.76it/s]Analyzing probabilities:  11%|█         | 66/626 [00:02<00:22, 24.91it/s]Analyzing probabilities:  11%|█         | 69/626 [00:02<00:22, 25.04it/s]Analyzing probabilities:  12%|█▏        | 72/626 [00:02<00:22, 25.05it/s]Analyzing probabilities:  12%|█▏        | 75/626 [00:03<00:22, 24.92it/s]Analyzing probabilities:  12%|█▏        | 78/626 [00:03<00:22, 24.77it/s]Analyzing probabilities:  13%|█▎        | 81/626 [00:03<00:22, 24.67it/s]Analyzing probabilities:  13%|█▎        | 84/626 [00:03<00:22, 24.41it/s]Analyzing probabilities:  14%|█▍        | 87/626 [00:03<00:22, 24.28it/s]Analyzing probabilities:  14%|█▍        | 90/626 [00:03<00:22, 24.14it/s]Analyzing probabilities:  15%|█▍        | 93/626 [00:03<00:22, 24.08it/s]Analyzing probabilities:  15%|█▌        | 96/626 [00:03<00:21, 24.27it/s]Analyzing probabilities:  16%|█▌        | 99/626 [00:03<00:21, 24.12it/s]Analyzing probabilities:  16%|█▋        | 102/626 [00:04<00:21, 24.38it/s]Analyzing probabilities:  17%|█▋        | 105/626 [00:04<00:21, 24.58it/s]Analyzing probabilities:  17%|█▋        | 108/626 [00:04<00:21, 24.56it/s]Analyzing probabilities:  18%|█▊        | 111/626 [00:04<00:20, 24.69it/s]Analyzing probabilities:  18%|█▊        | 114/626 [00:04<00:20, 24.50it/s]Analyzing probabilities:  19%|█▊        | 117/626 [00:04<00:20, 24.73it/s]Analyzing probabilities:  19%|█▉        | 120/626 [00:04<00:20, 24.92it/s]Analyzing probabilities:  20%|█▉        | 123/626 [00:04<00:20, 25.00it/s]Analyzing probabilities:  20%|██        | 126/626 [00:05<00:19, 25.11it/s]Analyzing probabilities:  21%|██        | 129/626 [00:05<00:19, 25.03it/s]Analyzing probabilities:  21%|██        | 132/626 [00:05<00:19, 24.87it/s]Analyzing probabilities:  22%|██▏       | 135/626 [00:05<00:19, 24.99it/s]Analyzing probabilities:  22%|██▏       | 138/626 [00:05<00:19, 24.72it/s]Analyzing probabilities:  23%|██▎       | 141/626 [00:05<00:19, 24.75it/s]Analyzing probabilities:  23%|██▎       | 144/626 [00:05<00:19, 24.65it/s]Analyzing probabilities:  23%|██▎       | 147/626 [00:05<00:19, 24.63it/s]Analyzing probabilities:  24%|██▍       | 150/626 [00:06<00:19, 24.38it/s]Analyzing probabilities:  24%|██▍       | 153/626 [00:06<00:19, 24.23it/s]Analyzing probabilities:  25%|██▍       | 156/626 [00:06<00:19, 24.55it/s]Analyzing probabilities:  25%|██▌       | 159/626 [00:06<00:18, 24.77it/s]Analyzing probabilities:  26%|██▌       | 162/626 [00:06<00:18, 24.89it/s]Analyzing probabilities:  26%|██▋       | 165/626 [00:06<00:18, 24.96it/s]Analyzing probabilities:  27%|██▋       | 168/626 [00:06<00:18, 24.60it/s]Analyzing probabilities:  27%|██▋       | 171/626 [00:06<00:18, 24.39it/s]Analyzing probabilities:  28%|██▊       | 174/626 [00:07<00:18, 24.63it/s]Analyzing probabilities:  28%|██▊       | 177/626 [00:07<00:18, 24.64it/s]Analyzing probabilities:  29%|██▉       | 180/626 [00:07<00:17, 24.79it/s]Analyzing probabilities:  29%|██▉       | 183/626 [00:07<00:18, 24.52it/s]Analyzing probabilities:  30%|██▉       | 186/626 [00:07<00:17, 24.72it/s]Analyzing probabilities:  30%|███       | 189/626 [00:07<00:17, 24.84it/s]Analyzing probabilities:  31%|███       | 192/626 [00:07<00:17, 24.96it/s]Analyzing probabilities:  31%|███       | 195/626 [00:07<00:17, 25.17it/s]Analyzing probabilities:  32%|███▏      | 198/626 [00:07<00:16, 25.32it/s]Analyzing probabilities:  32%|███▏      | 201/626 [00:08<00:16, 25.31it/s]Analyzing probabilities:  33%|███▎      | 204/626 [00:08<00:16, 25.31it/s]Analyzing probabilities:  33%|███▎      | 207/626 [00:08<00:16, 25.27it/s]Analyzing probabilities:  34%|███▎      | 210/626 [00:08<00:16, 25.16it/s]Analyzing probabilities:  34%|███▍      | 213/626 [00:08<00:16, 25.17it/s]Analyzing probabilities:  35%|███▍      | 216/626 [00:08<00:16, 25.20it/s]Analyzing probabilities:  35%|███▍      | 219/626 [00:08<00:16, 25.18it/s]Analyzing probabilities:  35%|███▌      | 222/626 [00:08<00:16, 25.16it/s]Analyzing probabilities:  36%|███▌      | 225/626 [00:09<00:16, 25.05it/s]Analyzing probabilities:  36%|███▋      | 228/626 [00:09<00:15, 25.10it/s]Analyzing probabilities:  37%|███▋      | 231/626 [00:09<00:15, 25.15it/s]Analyzing probabilities:  37%|███▋      | 234/626 [00:09<00:15, 25.13it/s]Analyzing probabilities:  38%|███▊      | 237/626 [00:09<00:15, 24.88it/s]Analyzing probabilities:  38%|███▊      | 240/626 [00:09<00:15, 24.63it/s]Analyzing probabilities:  39%|███▉      | 243/626 [00:09<00:15, 24.69it/s]Analyzing probabilities:  39%|███▉      | 246/626 [00:09<00:15, 24.74it/s]Analyzing probabilities:  40%|███▉      | 249/626 [00:10<00:15, 24.89it/s]Analyzing probabilities:  40%|████      | 252/626 [00:10<00:14, 24.99it/s]Analyzing probabilities:  41%|████      | 255/626 [00:10<00:14, 24.94it/s]Analyzing probabilities:  41%|████      | 258/626 [00:10<00:14, 24.87it/s]Analyzing probabilities:  42%|████▏     | 261/626 [00:10<00:14, 24.94it/s]Analyzing probabilities:  42%|████▏     | 264/626 [00:10<00:14, 25.01it/s]Analyzing probabilities:  43%|████▎     | 267/626 [00:10<00:14, 25.11it/s]Analyzing probabilities:  43%|████▎     | 270/626 [00:10<00:14, 25.15it/s]Analyzing probabilities:  44%|████▎     | 273/626 [00:10<00:14, 25.19it/s]Analyzing probabilities:  44%|████▍     | 276/626 [00:11<00:13, 25.20it/s]Analyzing probabilities:  45%|████▍     | 279/626 [00:11<00:13, 25.23it/s]Analyzing probabilities:  45%|████▌     | 282/626 [00:11<00:13, 25.23it/s]Analyzing probabilities:  46%|████▌     | 285/626 [00:11<00:13, 25.02it/s]Analyzing probabilities:  46%|████▌     | 288/626 [00:11<00:13, 25.07it/s]Analyzing probabilities:  46%|████▋     | 291/626 [00:11<00:13, 25.12it/s]Analyzing probabilities:  47%|████▋     | 294/626 [00:11<00:13, 25.13it/s]Analyzing probabilities:  47%|████▋     | 297/626 [00:11<00:13, 25.16it/s]Analyzing probabilities:  48%|████▊     | 300/626 [00:12<00:13, 25.02it/s]Analyzing probabilities:  48%|████▊     | 303/626 [00:12<00:12, 25.11it/s]Analyzing probabilities:  49%|████▉     | 306/626 [00:12<00:12, 25.19it/s]Analyzing probabilities:  49%|████▉     | 309/626 [00:12<00:12, 25.23it/s]Analyzing probabilities:  50%|████▉     | 312/626 [00:12<00:12, 25.24it/s]Analyzing probabilities:  50%|█████     | 315/626 [00:12<00:12, 25.25it/s]Analyzing probabilities:  51%|█████     | 318/626 [00:12<00:12, 25.26it/s]Analyzing probabilities:  51%|█████▏    | 321/626 [00:12<00:12, 25.29it/s]Analyzing probabilities:  52%|█████▏    | 324/626 [00:13<00:12, 25.15it/s]Analyzing probabilities:  52%|█████▏    | 327/626 [00:13<00:11, 25.04it/s]Analyzing probabilities:  53%|█████▎    | 330/626 [00:13<00:11, 24.87it/s]Analyzing probabilities:  53%|█████▎    | 333/626 [00:13<00:11, 24.80it/s]Analyzing probabilities:  54%|█████▎    | 336/626 [00:13<00:11, 24.91it/s]Analyzing probabilities:  54%|█████▍    | 339/626 [00:13<00:11, 24.91it/s]Analyzing probabilities:  55%|█████▍    | 342/626 [00:13<00:11, 24.94it/s]Analyzing probabilities:  55%|█████▌    | 345/626 [00:13<00:11, 25.02it/s]Analyzing probabilities:  56%|█████▌    | 348/626 [00:13<00:11, 25.15it/s]Analyzing probabilities:  56%|█████▌    | 351/626 [00:14<00:10, 25.21it/s]Analyzing probabilities:  57%|█████▋    | 354/626 [00:14<00:10, 25.18it/s]Analyzing probabilities:  57%|█████▋    | 357/626 [00:14<00:10, 25.19it/s]Analyzing probabilities:  58%|█████▊    | 360/626 [00:14<00:10, 25.20it/s]Analyzing probabilities:  58%|█████▊    | 363/626 [00:14<00:10, 25.20it/s]Analyzing probabilities:  58%|█████▊    | 366/626 [00:14<00:10, 25.24it/s]Analyzing probabilities:  59%|█████▉    | 369/626 [00:14<00:10, 25.30it/s]Analyzing probabilities:  59%|█████▉    | 372/626 [00:14<00:09, 25.64it/s]Analyzing probabilities:  60%|█████▉    | 375/626 [00:15<00:09, 25.78it/s]Analyzing probabilities:  60%|██████    | 378/626 [00:15<00:09, 25.59it/s]Analyzing probabilities:  61%|██████    | 381/626 [00:15<00:09, 25.47it/s]Analyzing probabilities:  61%|██████▏   | 384/626 [00:15<00:09, 25.42it/s]Analyzing probabilities:  62%|██████▏   | 387/626 [00:15<00:09, 25.36it/s]Analyzing probabilities:  62%|██████▏   | 390/626 [00:15<00:09, 25.29it/s]Analyzing probabilities:  63%|██████▎   | 393/626 [00:15<00:09, 25.18it/s]Analyzing probabilities:  63%|██████▎   | 396/626 [00:15<00:09, 25.11it/s]Analyzing probabilities:  64%|██████▎   | 399/626 [00:15<00:09, 25.12it/s]Analyzing probabilities:  64%|██████▍   | 402/626 [00:16<00:08, 24.98it/s]Analyzing probabilities:  65%|██████▍   | 405/626 [00:16<00:08, 24.62it/s]Analyzing probabilities:  65%|██████▌   | 408/626 [00:16<00:08, 24.64it/s]Analyzing probabilities:  66%|██████▌   | 411/626 [00:16<00:08, 24.81it/s]Analyzing probabilities:  66%|██████▌   | 414/626 [00:16<00:08, 24.51it/s]Analyzing probabilities:  67%|██████▋   | 417/626 [00:16<00:08, 24.67it/s]Analyzing probabilities:  67%|██████▋   | 420/626 [00:16<00:08, 24.47it/s]Analyzing probabilities:  68%|██████▊   | 423/626 [00:16<00:08, 24.42it/s]Analyzing probabilities:  68%|██████▊   | 426/626 [00:17<00:08, 24.64it/s]Analyzing probabilities:  69%|██████▊   | 429/626 [00:17<00:07, 24.81it/s]Analyzing probabilities:  69%|██████▉   | 432/626 [00:17<00:07, 24.73it/s]Analyzing probabilities:  69%|██████▉   | 435/626 [00:17<00:07, 24.68it/s]Analyzing probabilities:  70%|██████▉   | 438/626 [00:17<00:07, 24.67it/s]Analyzing probabilities:  70%|███████   | 441/626 [00:17<00:07, 24.79it/s]Analyzing probabilities:  71%|███████   | 444/626 [00:17<00:07, 24.86it/s]Analyzing probabilities:  71%|███████▏  | 447/626 [00:17<00:07, 24.95it/s]Analyzing probabilities:  72%|███████▏  | 450/626 [00:18<00:07, 24.87it/s]Analyzing probabilities:  72%|███████▏  | 453/626 [00:18<00:06, 24.97it/s]Analyzing probabilities:  73%|███████▎  | 456/626 [00:18<00:06, 25.02it/s]Analyzing probabilities:  73%|███████▎  | 459/626 [00:18<00:06, 24.94it/s]Analyzing probabilities:  74%|███████▍  | 462/626 [00:18<00:06, 25.01it/s]Analyzing probabilities:  74%|███████▍  | 465/626 [00:18<00:06, 25.20it/s]Analyzing probabilities:  75%|███████▍  | 468/626 [00:18<00:06, 25.64it/s]Analyzing probabilities:  75%|███████▌  | 471/626 [00:18<00:06, 25.64it/s]Analyzing probabilities:  76%|███████▌  | 474/626 [00:18<00:05, 25.59it/s]Analyzing probabilities:  76%|███████▌  | 477/626 [00:19<00:05, 25.45it/s]Analyzing probabilities:  77%|███████▋  | 480/626 [00:19<00:05, 25.38it/s]Analyzing probabilities:  77%|███████▋  | 483/626 [00:19<00:05, 25.37it/s]Analyzing probabilities:  78%|███████▊  | 486/626 [00:19<00:05, 25.35it/s]Analyzing probabilities:  78%|███████▊  | 489/626 [00:19<00:05, 25.34it/s]Analyzing probabilities:  79%|███████▊  | 492/626 [00:19<00:05, 25.28it/s]Analyzing probabilities:  79%|███████▉  | 495/626 [00:19<00:05, 25.27it/s]Analyzing probabilities:  80%|███████▉  | 498/626 [00:19<00:05, 25.29it/s]Analyzing probabilities:  80%|████████  | 501/626 [00:20<00:04, 25.31it/s]Analyzing probabilities:  81%|████████  | 504/626 [00:20<00:04, 25.29it/s]Analyzing probabilities:  81%|████████  | 507/626 [00:20<00:04, 25.16it/s]Analyzing probabilities:  81%|████████▏ | 510/626 [00:20<00:04, 25.17it/s]Analyzing probabilities:  82%|████████▏ | 513/626 [00:20<00:04, 25.58it/s]Analyzing probabilities:  82%|████████▏ | 516/626 [00:20<00:04, 25.54it/s]Analyzing probabilities:  83%|████████▎ | 519/626 [00:20<00:04, 25.45it/s]Analyzing probabilities:  83%|████████▎ | 522/626 [00:20<00:04, 25.36it/s]Analyzing probabilities:  84%|████████▍ | 525/626 [00:21<00:03, 25.39it/s]Analyzing probabilities:  84%|████████▍ | 528/626 [00:21<00:03, 25.23it/s]Analyzing probabilities:  85%|████████▍ | 531/626 [00:21<00:03, 25.26it/s]Analyzing probabilities:  85%|████████▌ | 534/626 [00:21<00:03, 25.28it/s]Analyzing probabilities:  86%|████████▌ | 537/626 [00:21<00:03, 25.23it/s]Analyzing probabilities:  86%|████████▋ | 540/626 [00:21<00:03, 25.11it/s]Analyzing probabilities:  87%|████████▋ | 543/626 [00:21<00:03, 25.08it/s]Analyzing probabilities:  87%|████████▋ | 546/626 [00:21<00:03, 25.12it/s]Analyzing probabilities:  88%|████████▊ | 549/626 [00:21<00:03, 25.12it/s]Analyzing probabilities:  88%|████████▊ | 552/626 [00:22<00:02, 25.13it/s]Analyzing probabilities:  89%|████████▊ | 555/626 [00:22<00:02, 24.99it/s]Analyzing probabilities:  89%|████████▉ | 558/626 [00:22<00:02, 24.63it/s]Analyzing probabilities:  90%|████████▉ | 561/626 [00:22<00:02, 24.53it/s]Analyzing probabilities:  90%|█████████ | 564/626 [00:22<00:02, 24.75it/s]Analyzing probabilities:  91%|█████████ | 567/626 [00:22<00:02, 24.89it/s]Analyzing probabilities:  91%|█████████ | 570/626 [00:22<00:02, 24.95it/s]Analyzing probabilities:  92%|█████████▏| 573/626 [00:22<00:02, 24.93it/s]Analyzing probabilities:  92%|█████████▏| 576/626 [00:23<00:02, 24.95it/s]Analyzing probabilities:  92%|█████████▏| 579/626 [00:23<00:01, 24.98it/s]Analyzing probabilities:  93%|█████████▎| 582/626 [00:23<00:01, 24.76it/s]Analyzing probabilities:  93%|█████████▎| 585/626 [00:23<00:01, 24.90it/s]Analyzing probabilities:  94%|█████████▍| 588/626 [00:23<00:01, 24.98it/s]Analyzing probabilities:  94%|█████████▍| 591/626 [00:23<00:01, 24.99it/s]Analyzing probabilities:  95%|█████████▍| 594/626 [00:23<00:01, 24.86it/s]Analyzing probabilities:  95%|█████████▌| 597/626 [00:23<00:01, 24.57it/s]Analyzing probabilities:  96%|█████████▌| 600/626 [00:24<00:01, 24.59it/s]Analyzing probabilities:  96%|█████████▋| 603/626 [00:24<00:00, 24.45it/s]Analyzing probabilities:  97%|█████████▋| 606/626 [00:24<00:00, 24.43it/s]Analyzing probabilities:  97%|█████████▋| 609/626 [00:24<00:00, 24.11it/s]Analyzing probabilities:  98%|█████████▊| 612/626 [00:24<00:00, 24.09it/s]Analyzing probabilities:  98%|█████████▊| 615/626 [00:24<00:00, 24.15it/s]Analyzing probabilities:  99%|█████████▊| 618/626 [00:24<00:00, 24.40it/s]Analyzing probabilities:  99%|█████████▉| 621/626 [00:24<00:00, 24.62it/s]Analyzing probabilities: 100%|█████████▉| 624/626 [00:25<00:00, 24.76it/s]Analyzing probabilities: 100%|██████████| 626/626 [00:25<00:00, 24.95it/s]
+  Score stats: min=0.0000, max=0.0270, mean=0.0033
+
+============================================================
+Results for llama-3.1-8b with strategy_2
+============================================================
+Accuracy:  0.9653
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9019      0
+  Actual 1:   324      0
+============================================================
+
+Saved predictions to /workspace/results/dev/next_token_prob_2/llama_3.1_8b.csv
+
+============================================================
+[6/28] Strategy 2 (next_token_prob) - llama-3.1-8b - ood
+============================================================
+
+Strategy 2: Next-Token Probability Analysis
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+Threshold: 0.15
+  Found 128 punctuation marks to analyze
+  Loading model: meta-llama/Llama-3.1-8B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.64it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.64it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.71it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.46it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.10it/s]
+Analyzing probabilities:   0%|          | 0/128 [00:00<?, ?it/s]Analyzing probabilities:   2%|▏         | 3/128 [00:00<00:04, 29.75it/s]Analyzing probabilities:   5%|▍         | 6/128 [00:00<00:04, 27.98it/s]Analyzing probabilities:   7%|▋         | 9/128 [00:00<00:04, 25.93it/s]Analyzing probabilities:   9%|▉         | 12/128 [00:00<00:04, 25.04it/s]Analyzing probabilities:  12%|█▏        | 15/128 [00:00<00:04, 24.62it/s]Analyzing probabilities:  14%|█▍        | 18/128 [00:00<00:04, 24.82it/s]Analyzing probabilities:  16%|█▋        | 21/128 [00:00<00:04, 24.93it/s]Analyzing probabilities:  19%|█▉        | 24/128 [00:00<00:04, 24.91it/s]Analyzing probabilities:  21%|██        | 27/128 [00:01<00:04, 24.86it/s]Analyzing probabilities:  23%|██▎       | 30/128 [00:01<00:04, 24.44it/s]Analyzing probabilities:  26%|██▌       | 33/128 [00:01<00:03, 24.28it/s]Analyzing probabilities:  28%|██▊       | 36/128 [00:01<00:03, 24.46it/s]Analyzing probabilities:  30%|███       | 39/128 [00:01<00:03, 24.60it/s]Analyzing probabilities:  33%|███▎      | 42/128 [00:01<00:03, 24.21it/s]Analyzing probabilities:  35%|███▌      | 45/128 [00:01<00:03, 24.43it/s]Analyzing probabilities:  38%|███▊      | 48/128 [00:01<00:03, 24.63it/s]Analyzing probabilities:  40%|███▉      | 51/128 [00:02<00:03, 24.40it/s]Analyzing probabilities:  42%|████▏     | 54/128 [00:02<00:03, 24.47it/s]Analyzing probabilities:  45%|████▍     | 57/128 [00:02<00:02, 24.23it/s]Analyzing probabilities:  47%|████▋     | 60/128 [00:02<00:02, 24.22it/s]Analyzing probabilities:  49%|████▉     | 63/128 [00:02<00:02, 23.94it/s]Analyzing probabilities:  52%|█████▏    | 66/128 [00:02<00:02, 23.20it/s]Analyzing probabilities:  54%|█████▍    | 69/128 [00:02<00:02, 23.62it/s]Analyzing probabilities:  56%|█████▋    | 72/128 [00:02<00:02, 23.68it/s]Analyzing probabilities:  59%|█████▊    | 75/128 [00:03<00:02, 23.61it/s]Analyzing probabilities:  61%|██████    | 78/128 [00:03<00:02, 23.82it/s]Analyzing probabilities:  63%|██████▎   | 81/128 [00:03<00:01, 24.04it/s]Analyzing probabilities:  66%|██████▌   | 84/128 [00:03<00:01, 24.00it/s]Analyzing probabilities:  68%|██████▊   | 87/128 [00:03<00:01, 24.21it/s]Analyzing probabilities:  70%|███████   | 90/128 [00:03<00:01, 24.54it/s]Analyzing probabilities:  73%|███████▎  | 93/128 [00:03<00:01, 24.60it/s]Analyzing probabilities:  75%|███████▌  | 96/128 [00:03<00:01, 24.23it/s]Analyzing probabilities:  77%|███████▋  | 99/128 [00:04<00:01, 24.26it/s]Analyzing probabilities:  80%|███████▉  | 102/128 [00:04<00:01, 24.24it/s]Analyzing probabilities:  82%|████████▏ | 105/128 [00:04<00:00, 23.98it/s]Analyzing probabilities:  84%|████████▍ | 108/128 [00:04<00:00, 24.02it/s]Analyzing probabilities:  87%|████████▋ | 111/128 [00:04<00:00, 24.31it/s]Analyzing probabilities:  89%|████████▉ | 114/128 [00:04<00:00, 24.65it/s]Analyzing probabilities:  91%|█████████▏| 117/128 [00:04<00:00, 24.83it/s]Analyzing probabilities:  94%|█████████▍| 120/128 [00:04<00:00, 24.96it/s]Analyzing probabilities:  96%|█████████▌| 123/128 [00:05<00:00, 25.02it/s]Analyzing probabilities:  98%|█████████▊| 126/128 [00:05<00:00, 24.68it/s]Analyzing probabilities: 100%|██████████| 128/128 [00:05<00:00, 24.44it/s]
+  Score stats: min=0.0001, max=0.0166, mean=0.0036
+
+============================================================
+Results for llama-3.1-8b with strategy_2
+============================================================
+Accuracy:  0.9369
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1426      0
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/next_token_prob_2/llama_3.1_8b.csv
+
+============================================================
+[7/28] Strategy 2 (next_token_prob) - qwen3-8b - dev
+============================================================
+
+Strategy 2: Next-Token Probability Analysis
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+Threshold: 0.15
+  Found 626 punctuation marks to analyze
+  Loading model: Qwen/Qwen2.5-7B-Instruct
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [02:00<06:02, 120.90s/it]Fetching 4 files: 100%|██████████| 4/4 [02:00<00:00, 30.22s/it] 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.67it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.10s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.26s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.11s/it]
+Analyzing probabilities:   0%|          | 0/626 [00:00<?, ?it/s]Analyzing probabilities:   0%|          | 3/626 [00:00<00:24, 25.24it/s]Analyzing probabilities:   1%|          | 6/626 [00:00<00:23, 26.10it/s]Analyzing probabilities:   1%|▏         | 9/626 [00:00<00:23, 26.43it/s]Analyzing probabilities:   2%|▏         | 12/626 [00:00<00:23, 26.53it/s]Analyzing probabilities:   2%|▏         | 15/626 [00:00<00:22, 26.69it/s]Analyzing probabilities:   3%|▎         | 18/626 [00:00<00:22, 26.77it/s]Analyzing probabilities:   3%|▎         | 21/626 [00:00<00:22, 26.92it/s]Analyzing probabilities:   4%|▍         | 24/626 [00:00<00:22, 26.96it/s]Analyzing probabilities:   4%|▍         | 27/626 [00:01<00:22, 27.08it/s]Analyzing probabilities:   5%|▍         | 30/626 [00:01<00:21, 27.13it/s]Analyzing probabilities:   5%|▌         | 33/626 [00:01<00:21, 27.13it/s]Analyzing probabilities:   6%|▌         | 36/626 [00:01<00:21, 27.22it/s]Analyzing probabilities:   6%|▌         | 39/626 [00:01<00:21, 27.22it/s]Analyzing probabilities:   7%|▋         | 42/626 [00:01<00:21, 27.25it/s]Analyzing probabilities:   7%|▋         | 45/626 [00:01<00:21, 27.41it/s]Analyzing probabilities:   8%|▊         | 48/626 [00:01<00:21, 27.41it/s]Analyzing probabilities:   8%|▊         | 51/626 [00:01<00:20, 27.54it/s]Analyzing probabilities:   9%|▊         | 54/626 [00:01<00:20, 27.42it/s]Analyzing probabilities:   9%|▉         | 57/626 [00:02<00:20, 27.51it/s]Analyzing probabilities:  10%|▉         | 60/626 [00:02<00:20, 27.52it/s]Analyzing probabilities:  10%|█         | 63/626 [00:02<00:20, 27.49it/s]Analyzing probabilities:  11%|█         | 66/626 [00:02<00:20, 27.54it/s]Analyzing probabilities:  11%|█         | 69/626 [00:02<00:20, 27.65it/s]Analyzing probabilities:  12%|█▏        | 72/626 [00:02<00:20, 27.64it/s]Analyzing probabilities:  12%|█▏        | 75/626 [00:02<00:19, 27.61it/s]Analyzing probabilities:  12%|█▏        | 78/626 [00:02<00:19, 27.43it/s]Analyzing probabilities:  13%|█▎        | 81/626 [00:02<00:19, 27.39it/s]Analyzing probabilities:  13%|█▎        | 84/626 [00:03<00:19, 27.52it/s]Analyzing probabilities:  14%|█▍        | 87/626 [00:03<00:19, 27.58it/s]Analyzing probabilities:  14%|█▍        | 90/626 [00:03<00:19, 27.61it/s]Analyzing probabilities:  15%|█▍        | 93/626 [00:03<00:19, 27.54it/s]Analyzing probabilities:  15%|█▌        | 96/626 [00:03<00:19, 27.56it/s]Analyzing probabilities:  16%|█▌        | 99/626 [00:03<00:19, 27.66it/s]Analyzing probabilities:  16%|█▋        | 102/626 [00:03<00:18, 27.63it/s]Analyzing probabilities:  17%|█▋        | 105/626 [00:03<00:18, 27.66it/s]Analyzing probabilities:  17%|█▋        | 108/626 [00:03<00:18, 27.60it/s]Analyzing probabilities:  18%|█▊        | 111/626 [00:04<00:18, 27.61it/s]Analyzing probabilities:  18%|█▊        | 114/626 [00:04<00:18, 27.50it/s]Analyzing probabilities:  19%|█▊        | 117/626 [00:04<00:18, 27.55it/s]Analyzing probabilities:  19%|█▉        | 120/626 [00:04<00:18, 27.58it/s]Analyzing probabilities:  20%|█▉        | 123/626 [00:04<00:18, 27.61it/s]Analyzing probabilities:  20%|██        | 126/626 [00:04<00:18, 27.67it/s]Analyzing probabilities:  21%|██        | 129/626 [00:04<00:17, 27.73it/s]Analyzing probabilities:  21%|██        | 132/626 [00:04<00:17, 27.67it/s]Analyzing probabilities:  22%|██▏       | 135/626 [00:04<00:17, 27.64it/s]Analyzing probabilities:  22%|██▏       | 138/626 [00:05<00:17, 27.68it/s]Analyzing probabilities:  23%|██▎       | 141/626 [00:05<00:17, 27.62it/s]Analyzing probabilities:  23%|██▎       | 144/626 [00:05<00:17, 27.63it/s]Analyzing probabilities:  23%|██▎       | 147/626 [00:05<00:17, 27.68it/s]Analyzing probabilities:  24%|██▍       | 150/626 [00:05<00:17, 27.62it/s]Analyzing probabilities:  24%|██▍       | 153/626 [00:05<00:17, 27.42it/s]Analyzing probabilities:  25%|██▍       | 156/626 [00:05<00:17, 27.36it/s]Analyzing probabilities:  25%|██▌       | 159/626 [00:05<00:16, 27.49it/s]Analyzing probabilities:  26%|██▌       | 162/626 [00:05<00:16, 27.49it/s]Analyzing probabilities:  26%|██▋       | 165/626 [00:06<00:16, 27.48it/s]Analyzing probabilities:  27%|██▋       | 168/626 [00:06<00:16, 27.56it/s]Analyzing probabilities:  27%|██▋       | 171/626 [00:06<00:16, 27.52it/s]Analyzing probabilities:  28%|██▊       | 174/626 [00:06<00:16, 27.49it/s]Analyzing probabilities:  28%|██▊       | 177/626 [00:06<00:16, 27.53it/s]Analyzing probabilities:  29%|██▉       | 180/626 [00:06<00:16, 27.58it/s]Analyzing probabilities:  29%|██▉       | 183/626 [00:06<00:16, 27.55it/s]Analyzing probabilities:  30%|██▉       | 186/626 [00:06<00:16, 27.47it/s]Analyzing probabilities:  30%|███       | 189/626 [00:06<00:15, 27.34it/s]Analyzing probabilities:  31%|███       | 192/626 [00:07<00:15, 27.43it/s]Analyzing probabilities:  31%|███       | 195/626 [00:07<00:15, 27.51it/s]Analyzing probabilities:  32%|███▏      | 198/626 [00:07<00:15, 27.51it/s]Analyzing probabilities:  32%|███▏      | 201/626 [00:07<00:15, 27.54it/s]Analyzing probabilities:  33%|███▎      | 204/626 [00:07<00:15, 27.58it/s]Analyzing probabilities:  33%|███▎      | 207/626 [00:07<00:15, 27.63it/s]Analyzing probabilities:  34%|███▎      | 210/626 [00:07<00:15, 27.66it/s]Analyzing probabilities:  34%|███▍      | 213/626 [00:07<00:14, 27.73it/s]Analyzing probabilities:  35%|███▍      | 216/626 [00:07<00:14, 27.72it/s]Analyzing probabilities:  35%|███▍      | 219/626 [00:07<00:14, 27.72it/s]Analyzing probabilities:  35%|███▌      | 222/626 [00:08<00:14, 27.57it/s]Analyzing probabilities:  36%|███▌      | 225/626 [00:08<00:14, 27.34it/s]Analyzing probabilities:  36%|███▋      | 228/626 [00:08<00:14, 27.24it/s]Analyzing probabilities:  37%|███▋      | 231/626 [00:08<00:14, 27.32it/s]Analyzing probabilities:  37%|███▋      | 234/626 [00:08<00:14, 27.43it/s]Analyzing probabilities:  38%|███▊      | 237/626 [00:08<00:14, 27.44it/s]Analyzing probabilities:  38%|███▊      | 240/626 [00:08<00:14, 27.49it/s]Analyzing probabilities:  39%|███▉      | 243/626 [00:08<00:13, 27.36it/s]Analyzing probabilities:  39%|███▉      | 246/626 [00:08<00:13, 27.43it/s]Analyzing probabilities:  40%|███▉      | 249/626 [00:09<00:13, 27.49it/s]Analyzing probabilities:  40%|████      | 252/626 [00:09<00:13, 27.49it/s]Analyzing probabilities:  41%|████      | 255/626 [00:09<00:13, 27.51it/s]Analyzing probabilities:  41%|████      | 258/626 [00:09<00:13, 27.41it/s]Analyzing probabilities:  42%|████▏     | 261/626 [00:09<00:13, 27.32it/s]Analyzing probabilities:  42%|████▏     | 264/626 [00:09<00:13, 27.29it/s]Analyzing probabilities:  43%|████▎     | 267/626 [00:09<00:13, 27.38it/s]Analyzing probabilities:  43%|████▎     | 270/626 [00:09<00:12, 27.45it/s]Analyzing probabilities:  44%|████▎     | 273/626 [00:09<00:12, 27.53it/s]Analyzing probabilities:  44%|████▍     | 276/626 [00:10<00:12, 27.54it/s]Analyzing probabilities:  45%|████▍     | 279/626 [00:10<00:12, 27.59it/s]Analyzing probabilities:  45%|████▌     | 282/626 [00:10<00:12, 27.56it/s]Analyzing probabilities:  46%|████▌     | 285/626 [00:10<00:12, 27.42it/s]Analyzing probabilities:  46%|████▌     | 288/626 [00:10<00:12, 27.35it/s]Analyzing probabilities:  46%|████▋     | 291/626 [00:10<00:12, 27.39it/s]Analyzing probabilities:  47%|████▋     | 294/626 [00:10<00:12, 27.36it/s]Analyzing probabilities:  47%|████▋     | 297/626 [00:10<00:12, 27.34it/s]Analyzing probabilities:  48%|████▊     | 300/626 [00:10<00:11, 27.21it/s]Analyzing probabilities:  48%|████▊     | 303/626 [00:11<00:11, 27.30it/s]Analyzing probabilities:  49%|████▉     | 306/626 [00:11<00:11, 27.45it/s]Analyzing probabilities:  49%|████▉     | 309/626 [00:11<00:11, 27.53it/s]Analyzing probabilities:  50%|████▉     | 312/626 [00:11<00:11, 27.47it/s]Analyzing probabilities:  50%|█████     | 315/626 [00:11<00:11, 27.50it/s]Analyzing probabilities:  51%|█████     | 318/626 [00:11<00:11, 27.58it/s]Analyzing probabilities:  51%|█████▏    | 321/626 [00:11<00:11, 27.60it/s]Analyzing probabilities:  52%|█████▏    | 324/626 [00:11<00:10, 27.55it/s]Analyzing probabilities:  52%|█████▏    | 327/626 [00:11<00:10, 27.46it/s]Analyzing probabilities:  53%|█████▎    | 330/626 [00:12<00:10, 27.45it/s]Analyzing probabilities:  53%|█████▎    | 333/626 [00:12<00:10, 27.42it/s]Analyzing probabilities:  54%|█████▎    | 336/626 [00:12<00:10, 27.26it/s]Analyzing probabilities:  54%|█████▍    | 339/626 [00:12<00:10, 27.25it/s]Analyzing probabilities:  55%|█████▍    | 342/626 [00:12<00:10, 27.33it/s]Analyzing probabilities:  55%|█████▌    | 345/626 [00:12<00:10, 27.39it/s]Analyzing probabilities:  56%|█████▌    | 348/626 [00:12<00:10, 27.31it/s]Analyzing probabilities:  56%|█████▌    | 351/626 [00:12<00:10, 27.47it/s]Analyzing probabilities:  57%|█████▋    | 354/626 [00:12<00:09, 27.50it/s]Analyzing probabilities:  57%|█████▋    | 357/626 [00:13<00:09, 27.49it/s]Analyzing probabilities:  58%|█████▊    | 360/626 [00:13<00:09, 27.48it/s]Analyzing probabilities:  58%|█████▊    | 363/626 [00:13<00:09, 27.47it/s]Analyzing probabilities:  58%|█████▊    | 366/626 [00:13<00:09, 27.51it/s]Analyzing probabilities:  59%|█████▉    | 369/626 [00:13<00:09, 27.51it/s]Analyzing probabilities:  59%|█████▉    | 372/626 [00:13<00:09, 27.45it/s]Analyzing probabilities:  60%|█████▉    | 375/626 [00:13<00:09, 27.45it/s]Analyzing probabilities:  60%|██████    | 378/626 [00:13<00:09, 27.47it/s]Analyzing probabilities:  61%|██████    | 381/626 [00:13<00:08, 27.52it/s]Analyzing probabilities:  61%|██████▏   | 384/626 [00:13<00:08, 27.55it/s]Analyzing probabilities:  62%|██████▏   | 387/626 [00:14<00:08, 27.55it/s]Analyzing probabilities:  62%|██████▏   | 390/626 [00:14<00:08, 27.45it/s]Analyzing probabilities:  63%|██████▎   | 393/626 [00:14<00:08, 27.40it/s]Analyzing probabilities:  63%|██████▎   | 396/626 [00:14<00:08, 27.26it/s]Analyzing probabilities:  64%|██████▎   | 399/626 [00:14<00:08, 27.24it/s]Analyzing probabilities:  64%|██████▍   | 402/626 [00:14<00:08, 27.28it/s]Analyzing probabilities:  65%|██████▍   | 405/626 [00:14<00:08, 27.36it/s]Analyzing probabilities:  65%|██████▌   | 408/626 [00:14<00:07, 27.31it/s]Analyzing probabilities:  66%|██████▌   | 411/626 [00:14<00:07, 27.19it/s]Analyzing probabilities:  66%|██████▌   | 414/626 [00:15<00:07, 27.23it/s]Analyzing probabilities:  67%|██████▋   | 417/626 [00:15<00:07, 27.12it/s]Analyzing probabilities:  67%|██████▋   | 420/626 [00:15<00:07, 27.24it/s]Analyzing probabilities:  68%|██████▊   | 423/626 [00:15<00:07, 27.13it/s]Analyzing probabilities:  68%|██████▊   | 426/626 [00:15<00:07, 27.17it/s]Analyzing probabilities:  69%|██████▊   | 429/626 [00:15<00:07, 27.28it/s]Analyzing probabilities:  69%|██████▉   | 432/626 [00:15<00:07, 27.39it/s]Analyzing probabilities:  69%|██████▉   | 435/626 [00:15<00:07, 27.25it/s]Analyzing probabilities:  70%|██████▉   | 438/626 [00:15<00:06, 27.26it/s]Analyzing probabilities:  70%|███████   | 441/626 [00:16<00:06, 27.32it/s]Analyzing probabilities:  71%|███████   | 444/626 [00:16<00:06, 27.39it/s]Analyzing probabilities:  71%|███████▏  | 447/626 [00:16<00:06, 27.38it/s]Analyzing probabilities:  72%|███████▏  | 450/626 [00:16<00:06, 27.25it/s]Analyzing probabilities:  72%|███████▏  | 453/626 [00:16<00:06, 27.25it/s]Analyzing probabilities:  73%|███████▎  | 456/626 [00:16<00:06, 27.29it/s]Analyzing probabilities:  73%|███████▎  | 459/626 [00:16<00:06, 27.32it/s]Analyzing probabilities:  74%|███████▍  | 462/626 [00:16<00:06, 27.33it/s]Analyzing probabilities:  74%|███████▍  | 465/626 [00:16<00:05, 27.35it/s]Analyzing probabilities:  75%|███████▍  | 468/626 [00:17<00:05, 27.47it/s]Analyzing probabilities:  75%|███████▌  | 471/626 [00:17<00:05, 27.63it/s]Analyzing probabilities:  76%|███████▌  | 474/626 [00:17<00:05, 27.76it/s]Analyzing probabilities:  76%|███████▌  | 477/626 [00:17<00:05, 27.67it/s]Analyzing probabilities:  77%|███████▋  | 480/626 [00:17<00:05, 27.64it/s]Analyzing probabilities:  77%|███████▋  | 483/626 [00:17<00:05, 27.67it/s]Analyzing probabilities:  78%|███████▊  | 486/626 [00:17<00:05, 27.66it/s]Analyzing probabilities:  78%|███████▊  | 489/626 [00:17<00:04, 27.52it/s]Analyzing probabilities:  79%|███████▊  | 492/626 [00:17<00:04, 27.46it/s]Analyzing probabilities:  79%|███████▉  | 495/626 [00:18<00:04, 27.38it/s]Analyzing probabilities:  80%|███████▉  | 498/626 [00:18<00:04, 27.43it/s]Analyzing probabilities:  80%|████████  | 501/626 [00:18<00:04, 27.50it/s]Analyzing probabilities:  81%|████████  | 504/626 [00:18<00:04, 27.54it/s]Analyzing probabilities:  81%|████████  | 507/626 [00:18<00:04, 27.55it/s]Analyzing probabilities:  81%|████████▏ | 510/626 [00:18<00:04, 27.59it/s]Analyzing probabilities:  82%|████████▏ | 513/626 [00:18<00:04, 27.58it/s]Analyzing probabilities:  82%|████████▏ | 516/626 [00:18<00:03, 27.74it/s]Analyzing probabilities:  83%|████████▎ | 519/626 [00:18<00:03, 27.73it/s]Analyzing probabilities:  83%|████████▎ | 522/626 [00:19<00:03, 27.65it/s]Analyzing probabilities:  84%|████████▍ | 525/626 [00:19<00:03, 27.62it/s]Analyzing probabilities:  84%|████████▍ | 528/626 [00:19<00:03, 27.69it/s]Analyzing probabilities:  85%|████████▍ | 531/626 [00:19<00:03, 27.69it/s]Analyzing probabilities:  85%|████████▌ | 534/626 [00:19<00:03, 27.74it/s]Analyzing probabilities:  86%|████████▌ | 537/626 [00:19<00:03, 27.66it/s]Analyzing probabilities:  86%|████████▋ | 540/626 [00:19<00:03, 27.53it/s]Analyzing probabilities:  87%|████████▋ | 543/626 [00:19<00:03, 27.36it/s]Analyzing probabilities:  87%|████████▋ | 546/626 [00:19<00:02, 27.40it/s]Analyzing probabilities:  88%|████████▊ | 549/626 [00:20<00:02, 27.11it/s]Analyzing probabilities:  88%|████████▊ | 552/626 [00:20<00:02, 26.94it/s]Analyzing probabilities:  89%|████████▊ | 555/626 [00:20<00:02, 27.00it/s]Analyzing probabilities:  89%|████████▉ | 558/626 [00:20<00:02, 27.09it/s]Analyzing probabilities:  90%|████████▉ | 561/626 [00:20<00:02, 27.07it/s]Analyzing probabilities:  90%|█████████ | 564/626 [00:20<00:02, 27.15it/s]Analyzing probabilities:  91%|█████████ | 567/626 [00:20<00:02, 27.23it/s]Analyzing probabilities:  91%|█████████ | 570/626 [00:20<00:02, 26.80it/s]Analyzing probabilities:  92%|█████████▏| 573/626 [00:20<00:01, 26.90it/s]Analyzing probabilities:  92%|█████████▏| 576/626 [00:21<00:01, 26.93it/s]Analyzing probabilities:  92%|█████████▏| 579/626 [00:21<00:01, 26.91it/s]Analyzing probabilities:  93%|█████████▎| 582/626 [00:21<00:01, 26.98it/s]Analyzing probabilities:  93%|█████████▎| 585/626 [00:21<00:01, 27.10it/s]Analyzing probabilities:  94%|█████████▍| 588/626 [00:21<00:01, 27.17it/s]Analyzing probabilities:  94%|█████████▍| 591/626 [00:21<00:01, 27.18it/s]Analyzing probabilities:  95%|█████████▍| 594/626 [00:21<00:01, 27.25it/s]Analyzing probabilities:  95%|█████████▌| 597/626 [00:21<00:01, 27.21it/s]Analyzing probabilities:  96%|█████████▌| 600/626 [00:21<00:00, 27.17it/s]Analyzing probabilities:  96%|█████████▋| 603/626 [00:22<00:00, 27.15it/s]Analyzing probabilities:  97%|█████████▋| 606/626 [00:22<00:00, 27.15it/s]Analyzing probabilities:  97%|█████████▋| 609/626 [00:22<00:00, 27.26it/s]Analyzing probabilities:  98%|█████████▊| 612/626 [00:22<00:00, 27.21it/s]Analyzing probabilities:  98%|█████████▊| 615/626 [00:22<00:00, 27.12it/s]Analyzing probabilities:  99%|█████████▊| 618/626 [00:22<00:00, 27.01it/s]Analyzing probabilities:  99%|█████████▉| 621/626 [00:22<00:00, 27.10it/s]Analyzing probabilities: 100%|█████████▉| 624/626 [00:22<00:00, 27.21it/s]Analyzing probabilities: 100%|██████████| 626/626 [00:22<00:00, 27.39it/s]
+  Score stats: min=0.0000, max=0.2009, mean=0.0073
+
+============================================================
+Results for qwen3-8b with strategy_2
+============================================================
+Accuracy:  0.9655
+Precision: 1.0000
+Recall:    0.0062
+F1 Score:  0.0123
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9019      0
+  Actual 1:   322      2
+============================================================
+
+Saved predictions to /workspace/results/dev/next_token_prob_2/qwen3_8b.csv
+
+============================================================
+[8/28] Strategy 2 (next_token_prob) - qwen3-8b - ood
+============================================================
+
+Strategy 2: Next-Token Probability Analysis
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+Threshold: 0.15
+  Found 128 punctuation marks to analyze
+  Loading model: Qwen/Qwen2.5-7B-Instruct
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.40it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.69it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.94it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.68it/s]
+Analyzing probabilities:   0%|          | 0/128 [00:00<?, ?it/s]Analyzing probabilities:   2%|▏         | 3/128 [00:00<00:04, 29.68it/s]Analyzing probabilities:   5%|▍         | 6/128 [00:00<00:04, 29.07it/s]Analyzing probabilities:   7%|▋         | 9/128 [00:00<00:04, 28.34it/s]Analyzing probabilities:   9%|▉         | 12/128 [00:00<00:04, 27.98it/s]Analyzing probabilities:  12%|█▏        | 15/128 [00:00<00:04, 27.83it/s]Analyzing probabilities:  14%|█▍        | 18/128 [00:00<00:03, 27.58it/s]Analyzing probabilities:  16%|█▋        | 21/128 [00:00<00:03, 27.53it/s]Analyzing probabilities:  19%|█▉        | 24/128 [00:00<00:03, 27.47it/s]Analyzing probabilities:  21%|██        | 27/128 [00:00<00:03, 27.21it/s]Analyzing probabilities:  23%|██▎       | 30/128 [00:01<00:03, 27.07it/s]Analyzing probabilities:  26%|██▌       | 33/128 [00:01<00:03, 27.05it/s]Analyzing probabilities:  28%|██▊       | 36/128 [00:01<00:03, 27.06it/s]Analyzing probabilities:  30%|███       | 39/128 [00:01<00:03, 27.17it/s]Analyzing probabilities:  33%|███▎      | 42/128 [00:01<00:03, 27.21it/s]Analyzing probabilities:  35%|███▌      | 45/128 [00:01<00:03, 27.27it/s]Analyzing probabilities:  38%|███▊      | 48/128 [00:01<00:02, 27.31it/s]Analyzing probabilities:  40%|███▉      | 51/128 [00:01<00:02, 27.26it/s]Analyzing probabilities:  42%|████▏     | 54/128 [00:01<00:02, 27.22it/s]Analyzing probabilities:  45%|████▍     | 57/128 [00:02<00:02, 27.17it/s]Analyzing probabilities:  47%|████▋     | 60/128 [00:02<00:02, 27.20it/s]Analyzing probabilities:  49%|████▉     | 63/128 [00:02<00:02, 27.17it/s]Analyzing probabilities:  52%|█████▏    | 66/128 [00:02<00:02, 27.10it/s]Analyzing probabilities:  54%|█████▍    | 69/128 [00:02<00:02, 26.94it/s]Analyzing probabilities:  56%|█████▋    | 72/128 [00:02<00:02, 27.08it/s]Analyzing probabilities:  59%|█████▊    | 75/128 [00:02<00:01, 27.18it/s]Analyzing probabilities:  61%|██████    | 78/128 [00:02<00:01, 27.09it/s]Analyzing probabilities:  63%|██████▎   | 81/128 [00:02<00:01, 27.14it/s]Analyzing probabilities:  66%|██████▌   | 84/128 [00:03<00:01, 27.19it/s]Analyzing probabilities:  68%|██████▊   | 87/128 [00:03<00:01, 27.21it/s]Analyzing probabilities:  70%|███████   | 90/128 [00:03<00:01, 27.34it/s]Analyzing probabilities:  73%|███████▎  | 93/128 [00:03<00:01, 27.36it/s]Analyzing probabilities:  75%|███████▌  | 96/128 [00:03<00:01, 27.12it/s]Analyzing probabilities:  77%|███████▋  | 99/128 [00:03<00:01, 27.12it/s]Analyzing probabilities:  80%|███████▉  | 102/128 [00:03<00:00, 27.11it/s]Analyzing probabilities:  82%|████████▏ | 105/128 [00:03<00:00, 27.00it/s]Analyzing probabilities:  84%|████████▍ | 108/128 [00:03<00:00, 27.00it/s]Analyzing probabilities:  87%|████████▋ | 111/128 [00:04<00:00, 27.07it/s]Analyzing probabilities:  89%|████████▉ | 114/128 [00:04<00:00, 27.12it/s]Analyzing probabilities:  91%|█████████▏| 117/128 [00:04<00:00, 27.24it/s]Analyzing probabilities:  94%|█████████▍| 120/128 [00:04<00:00, 27.32it/s]Analyzing probabilities:  96%|█████████▌| 123/128 [00:04<00:00, 27.29it/s]Analyzing probabilities:  98%|█████████▊| 126/128 [00:04<00:00, 27.27it/s]Analyzing probabilities: 100%|██████████| 128/128 [00:04<00:00, 27.28it/s]
+  Score stats: min=0.0000, max=0.0914, mean=0.0087
+
+============================================================
+Results for qwen3-8b with strategy_2
+============================================================
+Accuracy:  0.9369
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1426      0
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/next_token_prob_2/qwen3_8b.csv
+
+============================================================
+[9/28] Strategy 3 (marker_insertion) - llama-3.1-8b - dev
+============================================================
+
+Strategy 3: Marker Insertion
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+  Processing 47 chunks
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.80it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.37it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.41it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|█▋        | 1/6 [00:17<01:29, 17.85s/it]Generating:  33%|███▎      | 2/6 [00:37<01:15, 18.76s/it]Generating:  50%|█████     | 3/6 [00:56<00:56, 18.91s/it]Generating:  67%|██████▋   | 4/6 [01:14<00:36, 18.45s/it]Generating:  83%|████████▎ | 5/6 [01:32<00:18, 18.43s/it]Generating: 100%|██████████| 6/6 [01:50<00:00, 18.18s/it]Generating: 100%|██████████| 6/6 [01:50<00:00, 18.36s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_3
+============================================================
+Accuracy:  0.9636
+Precision: 0.4840
+Recall:    0.7469
+F1 Score:  0.5874
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8761    258
+  Actual 1:    82    242
+============================================================
+
+Saved predictions to /workspace/results/dev/marker_insertion_3/llama_3.1_8b.csv
+
+============================================================
+[10/28] Strategy 3 (marker_insertion) - llama-3.1-8b - ood
+============================================================
+
+Strategy 3: Marker Insertion
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+  Processing 8 chunks
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.35s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.12it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.34it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.99it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.52it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/1 [00:00<?, ?it/s]Generating: 100%|██████████| 1/1 [00:20<00:00, 20.57s/it]Generating: 100%|██████████| 1/1 [00:20<00:00, 20.57s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_3
+============================================================
+Accuracy:  0.9770
+Precision: 0.7563
+Recall:    0.9375
+F1 Score:  0.8372
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1397     29
+  Actual 1:     6     90
+============================================================
+
+Saved predictions to /workspace/results/ood/marker_insertion_3/llama_3.1_8b.csv
+
+============================================================
+[11/28] Strategy 3 (marker_insertion) - qwen3-8b - dev
+============================================================
+
+Strategy 3: Marker Insertion
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+  Processing 47 chunks
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.18s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.13s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:03<00:02,  1.11s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:04<00:01,  1.04s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.27it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.08it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|█▋        | 1/6 [00:29<02:28, 29.75s/it]Generating:  33%|███▎      | 2/6 [00:59<01:59, 29.81s/it]Generating:  50%|█████     | 3/6 [01:29<01:29, 29.82s/it]Generating:  67%|██████▋   | 4/6 [01:59<00:59, 29.73s/it]Generating:  83%|████████▎ | 5/6 [02:28<00:29, 29.73s/it]Generating: 100%|██████████| 6/6 [02:57<00:00, 29.23s/it]Generating: 100%|██████████| 6/6 [02:57<00:00, 29.50s/it]
+
+============================================================
+Results for qwen3-8b with strategy_3
+============================================================
+Accuracy:  0.9484
+Precision: 0.0183
+Recall:    0.0093
+F1 Score:  0.0123
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8858    161
+  Actual 1:   321      3
+============================================================
+
+Saved predictions to /workspace/results/dev/marker_insertion_3/qwen3_8b.csv
+
+============================================================
+[12/28] Strategy 3 (marker_insertion) - qwen3-8b - ood
+============================================================
+
+Strategy 3: Marker Insertion
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+  Processing 8 chunks
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.27it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.21it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.21it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.41it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.18it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.70it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/1 [00:00<?, ?it/s]Generating: 100%|██████████| 1/1 [00:29<00:00, 29.96s/it]Generating: 100%|██████████| 1/1 [00:29<00:00, 29.96s/it]
+
+============================================================
+Results for qwen3-8b with strategy_3
+============================================================
+Accuracy:  0.9133
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1390     36
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/marker_insertion_3/qwen3_8b.csv
+
+============================================================
+[13/28] Strategy 4 (structured_json) - llama-3.1-8b - dev
+============================================================
+
+Strategy 4: Structured JSON Output
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+Output format: JSON
+  Processing 63 chunks (JSON mode: True)
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.08it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.09s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.23s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/8 [00:00<?, ?it/s]Generating:  12%|█▎        | 1/8 [00:05<00:37,  5.31s/it]Generating:  25%|██▌       | 2/8 [00:11<00:33,  5.62s/it]Generating:  38%|███▊      | 3/8 [00:16<00:26,  5.29s/it]Generating:  50%|█████     | 4/8 [00:22<00:22,  5.67s/it]Generating:  62%|██████▎   | 5/8 [00:28<00:18,  6.01s/it]Generating:  75%|███████▌  | 6/8 [00:40<00:15,  7.79s/it]Generating:  88%|████████▊ | 7/8 [00:46<00:07,  7.28s/it]Generating: 100%|██████████| 8/8 [00:51<00:00,  6.46s/it]Generating: 100%|██████████| 8/8 [00:51<00:00,  6.39s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_4
+============================================================
+Accuracy:  0.9209
+Precision: 0.2343
+Recall:    0.5648
+F1 Score:  0.3312
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8421    598
+  Actual 1:   141    183
+============================================================
+
+Saved predictions to /workspace/results/dev/structured_json_4/llama_3.1_8b.csv
+
+============================================================
+[14/28] Strategy 4 (structured_json) - llama-3.1-8b - ood
+============================================================
+
+Strategy 4: Structured JSON Output
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+Output format: JSON
+  Processing 11 chunks (JSON mode: True)
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.29it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.51it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.61it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  2.35it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.95it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/2 [00:00<?, ?it/s]Generating:  50%|█████     | 1/2 [00:04<00:04,  4.90s/it]Generating: 100%|██████████| 2/2 [00:06<00:00,  3.24s/it]Generating: 100%|██████████| 2/2 [00:06<00:00,  3.49s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_4
+============================================================
+Accuracy:  0.9264
+Precision: 0.4310
+Recall:    0.5208
+F1 Score:  0.4717
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1360     66
+  Actual 1:    46     50
+============================================================
+
+Saved predictions to /workspace/results/ood/structured_json_4/llama_3.1_8b.csv
+
+============================================================
+[15/28] Strategy 4 (structured_json) - qwen3-8b - dev
+============================================================
+
+Strategy 4: Structured JSON Output
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+Output format: JSON
+  Processing 63 chunks (JSON mode: True)
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.16it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.47it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.19it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.31it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.86it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.55it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/8 [00:00<?, ?it/s]Generating:  12%|█▎        | 1/8 [00:31<03:37, 31.14s/it]Generating:  25%|██▌       | 2/8 [01:02<03:06, 31.16s/it]Generating:  38%|███▊      | 3/8 [01:33<02:35, 31.16s/it]Generating:  50%|█████     | 4/8 [02:04<02:04, 31.12s/it]Generating:  62%|██████▎   | 5/8 [02:35<01:33, 31.11s/it]Generating:  75%|███████▌  | 6/8 [03:06<01:02, 31.12s/it]Generating:  88%|████████▊ | 7/8 [03:37<00:31, 31.02s/it]Generating: 100%|██████████| 8/8 [04:06<00:00, 30.31s/it]Generating: 100%|██████████| 8/8 [04:06<00:00, 30.80s/it]
+
+============================================================
+Results for qwen3-8b with strategy_4
+============================================================
+Accuracy:  0.9000
+Precision: 0.1299
+Recall:    0.3302
+F1 Score:  0.1864
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8302    717
+  Actual 1:   217    107
+============================================================
+
+Saved predictions to /workspace/results/dev/structured_json_4/qwen3_8b.csv
+
+============================================================
+[16/28] Strategy 4 (structured_json) - qwen3-8b - ood
+============================================================
+
+Strategy 4: Structured JSON Output
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+Output format: JSON
+  Processing 11 chunks (JSON mode: True)
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.24it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.19it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.20it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.40it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.16it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.69it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/2 [00:00<?, ?it/s]Generating:  50%|█████     | 1/2 [00:31<00:31, 31.14s/it]Generating: 100%|██████████| 2/2 [00:51<00:00, 25.08s/it]Generating: 100%|██████████| 2/2 [00:51<00:00, 25.99s/it]
+
+============================================================
+Results for qwen3-8b with strategy_4
+============================================================
+Accuracy:  0.8765
+Precision: 0.2262
+Recall:    0.3958
+F1 Score:  0.2879
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1296    130
+  Actual 1:    58     38
+============================================================
+
+Saved predictions to /workspace/results/ood/structured_json_4/qwen3_8b.csv
+
+============================================================
+[17/28] Strategy 5 (few_shot_hard) - llama-3.1-8b - dev
+============================================================
+
+Strategy 5: Few-Shot Learning with Hard Examples
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+  Processing 94 chunks with few-shot examples
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.14s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.24s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.29it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.07it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/12 [00:00<?, ?it/s]Generating:   8%|▊         | 1/12 [00:19<03:30, 19.10s/it]Generating:  17%|█▋        | 2/12 [00:38<03:10, 19.07s/it]Generating:  25%|██▌       | 3/12 [00:57<02:51, 19.11s/it]Generating:  33%|███▎      | 4/12 [01:16<02:33, 19.13s/it]Generating:  42%|████▏     | 5/12 [01:35<02:13, 19.11s/it]Generating:  50%|█████     | 6/12 [01:54<01:54, 19.12s/it]Generating:  58%|█████▊    | 7/12 [02:13<01:35, 19.09s/it]Generating:  67%|██████▋   | 8/12 [02:32<01:16, 19.08s/it]Generating:  75%|███████▌  | 9/12 [02:51<00:57, 19.10s/it]Generating:  83%|████████▎ | 10/12 [03:10<00:38, 19.08s/it]Generating:  92%|█████████▏| 11/12 [03:30<00:19, 19.10s/it]Generating: 100%|██████████| 12/12 [03:47<00:00, 18.45s/it]Generating: 100%|██████████| 12/12 [03:47<00:00, 18.92s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_5
+============================================================
+Accuracy:  0.9635
+Precision: 0.0952
+Recall:    0.0062
+F1 Score:  0.0116
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9000     19
+  Actual 1:   322      2
+============================================================
+
+Saved predictions to /workspace/results/dev/few_shot_hard_5/llama_3.1_8b.csv
+
+============================================================
+[18/28] Strategy 5 (few_shot_hard) - llama-3.1-8b - ood
+============================================================
+
+Strategy 5: Few-Shot Learning with Hard Examples
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+  Processing 16 chunks with few-shot examples
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  1.77it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.74it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.76it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.53it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.18it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/2 [00:00<?, ?it/s]Generating:  50%|█████     | 1/2 [00:19<00:19, 19.13s/it]Generating: 100%|██████████| 2/2 [00:38<00:00, 19.19s/it]Generating: 100%|██████████| 2/2 [00:38<00:00, 19.18s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_5
+============================================================
+Accuracy:  0.9317
+Precision: 0.1667
+Recall:    0.0208
+F1 Score:  0.0370
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1416     10
+  Actual 1:    94      2
+============================================================
+
+Saved predictions to /workspace/results/ood/few_shot_hard_5/llama_3.1_8b.csv
+
+============================================================
+[19/28] Strategy 5 (few_shot_hard) - qwen3-8b - dev
+============================================================
+
+Strategy 5: Few-Shot Learning with Hard Examples
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+  Processing 94 chunks with few-shot examples
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.31it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.20it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.50it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.34it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/12 [00:00<?, ?it/s]Generating:   8%|▊         | 1/12 [00:20<03:49, 20.85s/it]Generating:  17%|█▋        | 2/12 [00:41<03:28, 20.80s/it]Generating:  25%|██▌       | 3/12 [01:02<03:07, 20.85s/it]Generating:  33%|███▎      | 4/12 [01:23<02:46, 20.87s/it]Generating:  42%|████▏     | 5/12 [01:44<02:25, 20.86s/it]Generating:  50%|█████     | 6/12 [02:05<02:05, 20.86s/it]Generating:  58%|█████▊    | 7/12 [02:26<01:44, 20.87s/it]Generating:  67%|██████▋   | 8/12 [02:46<01:23, 20.85s/it]Generating:  75%|███████▌  | 9/12 [03:07<01:02, 20.86s/it]Generating:  83%|████████▎ | 10/12 [03:28<00:41, 20.84s/it]Generating:  92%|█████████▏| 11/12 [03:49<00:20, 20.85s/it]Generating: 100%|██████████| 12/12 [04:07<00:00, 20.15s/it]Generating: 100%|██████████| 12/12 [04:07<00:00, 20.66s/it]
+
+============================================================
+Results for qwen3-8b with strategy_5
+============================================================
+Accuracy:  0.9650
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9016      3
+  Actual 1:   324      0
+============================================================
+
+Saved predictions to /workspace/results/dev/few_shot_hard_5/qwen3_8b.csv
+
+============================================================
+[20/28] Strategy 5 (few_shot_hard) - qwen3-8b - ood
+============================================================
+
+Strategy 5: Few-Shot Learning with Hard Examples
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+  Processing 16 chunks with few-shot examples
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.25it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.17it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.19it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.40it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.17it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.69it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Generating:   0%|          | 0/2 [00:00<?, ?it/s]Generating:  50%|█████     | 1/2 [00:20<00:20, 20.89s/it]Generating: 100%|██████████| 2/2 [00:41<00:00, 20.94s/it]Generating: 100%|██████████| 2/2 [00:41<00:00, 20.93s/it]
+
+============================================================
+Results for qwen3-8b with strategy_5
+============================================================
+Accuracy:  0.9363
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1425      1
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/few_shot_hard_5/qwen3_8b.csv
+
+============================================================
+[21/28] Strategy 6 (chain_of_thought) - llama-3.1-8b - dev
+============================================================
+
+Strategy 6: Chain-of-Thought Reasoning
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+  Found 626 punctuation marks for CoT analysis
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.08it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.04it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.39it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.24it/s]
+Model compiled with torch.compile
+Model loaded successfully
+CoT Reasoning:   0%|          | 0/79 [00:00<?, ?it/s]CoT Reasoning:   1%|▏         | 1/79 [00:08<11:32,  8.88s/it]CoT Reasoning:   3%|▎         | 2/79 [00:17<11:24,  8.89s/it]CoT Reasoning:   4%|▍         | 3/79 [00:26<11:16,  8.90s/it]CoT Reasoning:   5%|▌         | 4/79 [00:35<11:06,  8.89s/it]CoT Reasoning:   6%|▋         | 5/79 [00:44<10:56,  8.88s/it]CoT Reasoning:   8%|▊         | 6/79 [00:53<10:48,  8.89s/it]CoT Reasoning:   9%|▉         | 7/79 [01:02<10:39,  8.89s/it]CoT Reasoning:  10%|█         | 8/79 [01:11<10:30,  8.89s/it]CoT Reasoning:  11%|█▏        | 9/79 [01:20<10:22,  8.90s/it]CoT Reasoning:  13%|█▎        | 10/79 [01:28<10:14,  8.90s/it]CoT Reasoning:  14%|█▍        | 11/79 [01:37<10:06,  8.91s/it]CoT Reasoning:  15%|█▌        | 12/79 [01:46<09:58,  8.93s/it]CoT Reasoning:  16%|█▋        | 13/79 [01:55<09:48,  8.92s/it]CoT Reasoning:  18%|█▊        | 14/79 [02:04<09:39,  8.91s/it]CoT Reasoning:  19%|█▉        | 15/79 [02:13<09:29,  8.89s/it]CoT Reasoning:  20%|██        | 16/79 [02:22<09:19,  8.89s/it]CoT Reasoning:  22%|██▏       | 17/79 [02:31<09:11,  8.90s/it]CoT Reasoning:  23%|██▎       | 18/79 [02:40<08:59,  8.85s/it]CoT Reasoning:  24%|██▍       | 19/79 [02:48<08:52,  8.88s/it]CoT Reasoning:  25%|██▌       | 20/79 [02:57<08:43,  8.88s/it]CoT Reasoning:  27%|██▋       | 21/79 [03:06<08:36,  8.90s/it]CoT Reasoning:  28%|██▊       | 22/79 [03:15<08:25,  8.86s/it]CoT Reasoning:  29%|██▉       | 23/79 [03:24<08:17,  8.88s/it]CoT Reasoning:  30%|███       | 24/79 [03:33<08:08,  8.88s/it]CoT Reasoning:  32%|███▏      | 25/79 [03:42<07:59,  8.87s/it]CoT Reasoning:  33%|███▎      | 26/79 [03:51<07:50,  8.87s/it]CoT Reasoning:  34%|███▍      | 27/79 [03:59<07:40,  8.86s/it]CoT Reasoning:  35%|███▌      | 28/79 [04:08<07:32,  8.87s/it]CoT Reasoning:  37%|███▋      | 29/79 [04:17<07:23,  8.88s/it]CoT Reasoning:  38%|███▊      | 30/79 [04:26<07:15,  8.89s/it]CoT Reasoning:  39%|███▉      | 31/79 [04:35<07:06,  8.89s/it]CoT Reasoning:  41%|████      | 32/79 [04:44<06:57,  8.89s/it]CoT Reasoning:  42%|████▏     | 33/79 [04:53<06:48,  8.88s/it]CoT Reasoning:  43%|████▎     | 34/79 [05:02<06:39,  8.88s/it]CoT Reasoning:  44%|████▍     | 35/79 [05:11<06:30,  8.88s/it]CoT Reasoning:  46%|████▌     | 36/79 [05:19<06:22,  8.89s/it]CoT Reasoning:  47%|████▋     | 37/79 [05:28<06:13,  8.89s/it]CoT Reasoning:  48%|████▊     | 38/79 [05:37<06:04,  8.90s/it]CoT Reasoning:  49%|████▉     | 39/79 [05:46<05:55,  8.88s/it]CoT Reasoning:  51%|█████     | 40/79 [05:55<05:46,  8.88s/it]CoT Reasoning:  52%|█████▏    | 41/79 [06:04<05:37,  8.88s/it]CoT Reasoning:  53%|█████▎    | 42/79 [06:13<05:28,  8.89s/it]CoT Reasoning:  54%|█████▍    | 43/79 [06:22<05:19,  8.89s/it]CoT Reasoning:  56%|█████▌    | 44/79 [06:30<05:10,  8.88s/it]CoT Reasoning:  57%|█████▋    | 45/79 [06:39<05:01,  8.88s/it]CoT Reasoning:  58%|█████▊    | 46/79 [06:48<04:52,  8.86s/it]CoT Reasoning:  59%|█████▉    | 47/79 [06:57<04:43,  8.86s/it]CoT Reasoning:  61%|██████    | 48/79 [07:06<04:34,  8.86s/it]CoT Reasoning:  62%|██████▏   | 49/79 [07:15<04:26,  8.87s/it]CoT Reasoning:  63%|██████▎   | 50/79 [07:24<04:17,  8.87s/it]CoT Reasoning:  65%|██████▍   | 51/79 [07:33<04:08,  8.89s/it]CoT Reasoning:  66%|██████▌   | 52/79 [07:42<04:00,  8.90s/it]CoT Reasoning:  67%|██████▋   | 53/79 [07:50<03:51,  8.91s/it]CoT Reasoning:  68%|██████▊   | 54/79 [07:59<03:42,  8.92s/it]CoT Reasoning:  70%|██████▉   | 55/79 [08:08<03:33,  8.91s/it]CoT Reasoning:  71%|███████   | 56/79 [08:17<03:24,  8.90s/it]CoT Reasoning:  72%|███████▏  | 57/79 [08:26<03:15,  8.90s/it]CoT Reasoning:  73%|███████▎  | 58/79 [08:35<03:06,  8.89s/it]CoT Reasoning:  75%|███████▍  | 59/79 [08:44<02:57,  8.88s/it]CoT Reasoning:  76%|███████▌  | 60/79 [08:53<02:48,  8.87s/it]CoT Reasoning:  77%|███████▋  | 61/79 [09:01<02:39,  8.86s/it]CoT Reasoning:  78%|███████▊  | 62/79 [09:10<02:30,  8.85s/it]CoT Reasoning:  80%|███████▉  | 63/79 [09:19<02:21,  8.85s/it]CoT Reasoning:  81%|████████  | 64/79 [09:28<02:12,  8.84s/it]CoT Reasoning:  82%|████████▏ | 65/79 [09:37<02:03,  8.84s/it]CoT Reasoning:  84%|████████▎ | 66/79 [09:46<01:54,  8.84s/it]CoT Reasoning:  85%|████████▍ | 67/79 [09:55<01:46,  8.85s/it]CoT Reasoning:  86%|████████▌ | 68/79 [10:03<01:37,  8.85s/it]CoT Reasoning:  87%|████████▋ | 69/79 [10:12<01:28,  8.86s/it]CoT Reasoning:  89%|████████▊ | 70/79 [10:21<01:19,  8.88s/it]CoT Reasoning:  90%|████████▉ | 71/79 [10:30<01:10,  8.87s/it]CoT Reasoning:  91%|█████████ | 72/79 [10:39<01:02,  8.87s/it]CoT Reasoning:  92%|█████████▏| 73/79 [10:48<00:53,  8.88s/it]CoT Reasoning:  94%|█████████▎| 74/79 [10:57<00:44,  8.88s/it]CoT Reasoning:  95%|█████████▍| 75/79 [11:06<00:35,  8.89s/it]CoT Reasoning:  96%|█████████▌| 76/79 [11:15<00:26,  8.91s/it]CoT Reasoning:  97%|█████████▋| 77/79 [11:24<00:17,  8.93s/it]CoT Reasoning:  99%|█████████▊| 78/79 [11:32<00:08,  8.92s/it]CoT Reasoning: 100%|██████████| 79/79 [11:40<00:00,  8.42s/it]CoT Reasoning: 100%|██████████| 79/79 [11:40<00:00,  8.86s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_6
+============================================================
+Accuracy:  0.9721
+Precision: 0.7172
+Recall:    0.3210
+F1 Score:  0.4435
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8978     41
+  Actual 1:   220    104
+============================================================
+
+Saved predictions to /workspace/results/dev/chain_of_thought_6/llama_3.1_8b.csv
+
+============================================================
+[22/28] Strategy 6 (chain_of_thought) - llama-3.1-8b - ood
+============================================================
+
+Strategy 6: Chain-of-Thought Reasoning
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+  Found 128 punctuation marks for CoT analysis
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.04it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.35it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.46it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  2.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.74it/s]
+Model compiled with torch.compile
+Model loaded successfully
+CoT Reasoning:   0%|          | 0/16 [00:00<?, ?it/s]CoT Reasoning:   6%|▋         | 1/16 [00:08<02:13,  8.91s/it]CoT Reasoning:  12%|█▎        | 2/16 [00:17<02:04,  8.92s/it]CoT Reasoning:  19%|█▉        | 3/16 [00:26<01:55,  8.91s/it]CoT Reasoning:  25%|██▌       | 4/16 [00:35<01:47,  8.92s/it]CoT Reasoning:  31%|███▏      | 5/16 [00:44<01:37,  8.90s/it]CoT Reasoning:  38%|███▊      | 6/16 [00:53<01:29,  8.90s/it]CoT Reasoning:  44%|████▍     | 7/16 [01:02<01:20,  8.91s/it]CoT Reasoning:  50%|█████     | 8/16 [01:11<01:11,  8.93s/it]CoT Reasoning:  56%|█████▋    | 9/16 [01:20<01:02,  8.94s/it]CoT Reasoning:  62%|██████▎   | 10/16 [01:29<00:53,  8.94s/it]CoT Reasoning:  69%|██████▉   | 11/16 [01:38<00:44,  8.91s/it]CoT Reasoning:  75%|███████▌  | 12/16 [01:47<00:35,  8.93s/it]CoT Reasoning:  81%|████████▏ | 13/16 [01:55<00:26,  8.94s/it]CoT Reasoning:  88%|████████▊ | 14/16 [02:04<00:17,  8.91s/it]CoT Reasoning:  94%|█████████▍| 15/16 [02:13<00:08,  8.90s/it]CoT Reasoning: 100%|██████████| 16/16 [02:22<00:00,  8.92s/it]CoT Reasoning: 100%|██████████| 16/16 [02:22<00:00,  8.92s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_6
+============================================================
+Accuracy:  0.9534
+Precision: 0.7660
+Recall:    0.3750
+F1 Score:  0.5035
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1415     11
+  Actual 1:    60     36
+============================================================
+
+Saved predictions to /workspace/results/ood/chain_of_thought_6/llama_3.1_8b.csv
+
+============================================================
+[23/28] Strategy 6 (chain_of_thought) - qwen3-8b - dev
+============================================================
+
+Strategy 6: Chain-of-Thought Reasoning
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+  Found 626 punctuation marks for CoT analysis
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.08s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.34it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.11it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.47it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.30it/s]
+Model compiled with torch.compile
+Model loaded successfully
+CoT Reasoning:   0%|          | 0/79 [00:00<?, ?it/s]CoT Reasoning:   1%|▏         | 1/79 [00:09<12:26,  9.57s/it]CoT Reasoning:   3%|▎         | 2/79 [00:19<12:17,  9.58s/it]CoT Reasoning:   4%|▍         | 3/79 [00:28<12:08,  9.59s/it]CoT Reasoning:   5%|▌         | 4/79 [00:38<11:58,  9.58s/it]CoT Reasoning:   6%|▋         | 5/79 [00:47<11:48,  9.57s/it]CoT Reasoning:   8%|▊         | 6/79 [00:57<11:39,  9.58s/it]CoT Reasoning:   9%|▉         | 7/79 [01:07<11:30,  9.58s/it]CoT Reasoning:  10%|█         | 8/79 [01:16<11:20,  9.59s/it]CoT Reasoning:  11%|█▏        | 9/79 [01:26<11:11,  9.59s/it]CoT Reasoning:  13%|█▎        | 10/79 [01:35<11:02,  9.60s/it]CoT Reasoning:  14%|█▍        | 11/79 [01:45<10:53,  9.61s/it]CoT Reasoning:  15%|█▌        | 12/79 [01:55<10:44,  9.62s/it]CoT Reasoning:  16%|█▋        | 13/79 [02:04<10:34,  9.61s/it]CoT Reasoning:  18%|█▊        | 14/79 [02:14<10:24,  9.60s/it]CoT Reasoning:  19%|█▉        | 15/79 [02:23<10:13,  9.58s/it]CoT Reasoning:  20%|██        | 16/79 [02:33<10:03,  9.58s/it]CoT Reasoning:  22%|██▏       | 17/79 [02:43<09:54,  9.59s/it]CoT Reasoning:  23%|██▎       | 18/79 [02:52<09:45,  9.60s/it]CoT Reasoning:  24%|██▍       | 19/79 [03:02<09:36,  9.61s/it]CoT Reasoning:  25%|██▌       | 20/79 [03:11<09:26,  9.60s/it]CoT Reasoning:  27%|██▋       | 21/79 [03:21<09:17,  9.62s/it]CoT Reasoning:  28%|██▊       | 22/79 [03:31<09:07,  9.61s/it]CoT Reasoning:  29%|██▉       | 23/79 [03:40<08:58,  9.62s/it]CoT Reasoning:  30%|███       | 24/79 [03:50<08:47,  9.59s/it]CoT Reasoning:  32%|███▏      | 25/79 [03:59<08:37,  9.58s/it]CoT Reasoning:  33%|███▎      | 26/79 [04:09<08:26,  9.56s/it]CoT Reasoning:  34%|███▍      | 27/79 [04:18<08:16,  9.55s/it]CoT Reasoning:  35%|███▌      | 28/79 [04:28<08:07,  9.57s/it]CoT Reasoning:  37%|███▋      | 29/79 [04:38<07:58,  9.57s/it]CoT Reasoning:  38%|███▊      | 30/79 [04:47<07:49,  9.59s/it]CoT Reasoning:  39%|███▉      | 31/79 [04:57<07:39,  9.58s/it]CoT Reasoning:  41%|████      | 32/79 [05:06<07:30,  9.58s/it]CoT Reasoning:  42%|████▏     | 33/79 [05:16<07:20,  9.57s/it]CoT Reasoning:  43%|████▎     | 34/79 [05:25<07:10,  9.56s/it]CoT Reasoning:  44%|████▍     | 35/79 [05:35<07:00,  9.56s/it]CoT Reasoning:  46%|████▌     | 36/79 [05:45<06:52,  9.58s/it]CoT Reasoning:  47%|████▋     | 37/79 [05:54<06:42,  9.58s/it]CoT Reasoning:  48%|████▊     | 38/79 [06:04<06:33,  9.59s/it]CoT Reasoning:  49%|████▉     | 39/79 [06:13<06:22,  9.57s/it]CoT Reasoning:  51%|█████     | 40/79 [06:23<06:13,  9.57s/it]CoT Reasoning:  52%|█████▏    | 41/79 [06:33<06:03,  9.57s/it]CoT Reasoning:  53%|█████▎    | 42/79 [06:42<05:54,  9.58s/it]CoT Reasoning:  54%|█████▍    | 43/79 [06:52<05:44,  9.58s/it]CoT Reasoning:  56%|█████▌    | 44/79 [07:01<05:34,  9.57s/it]CoT Reasoning:  57%|█████▋    | 45/79 [07:11<05:25,  9.57s/it]CoT Reasoning:  58%|█████▊    | 46/79 [07:20<05:15,  9.55s/it]CoT Reasoning:  59%|█████▉    | 47/79 [07:30<05:05,  9.54s/it]CoT Reasoning:  61%|██████    | 48/79 [07:39<04:55,  9.54s/it]CoT Reasoning:  62%|██████▏   | 49/79 [07:49<04:46,  9.56s/it]CoT Reasoning:  63%|██████▎   | 50/79 [07:59<04:37,  9.56s/it]CoT Reasoning:  65%|██████▍   | 51/79 [08:08<04:28,  9.58s/it]CoT Reasoning:  66%|██████▌   | 52/79 [08:18<04:19,  9.60s/it]CoT Reasoning:  67%|██████▋   | 53/79 [08:27<04:09,  9.60s/it]CoT Reasoning:  68%|██████▊   | 54/79 [08:37<04:00,  9.61s/it]CoT Reasoning:  70%|██████▉   | 55/79 [08:47<03:50,  9.61s/it]CoT Reasoning:  71%|███████   | 56/79 [08:56<03:40,  9.60s/it]CoT Reasoning:  72%|███████▏  | 57/79 [09:06<03:31,  9.60s/it]CoT Reasoning:  73%|███████▎  | 58/79 [09:15<03:21,  9.58s/it]CoT Reasoning:  75%|███████▍  | 59/79 [09:25<03:11,  9.56s/it]CoT Reasoning:  76%|███████▌  | 60/79 [09:34<03:01,  9.55s/it]CoT Reasoning:  77%|███████▋  | 61/79 [09:44<02:51,  9.53s/it]CoT Reasoning:  78%|███████▊  | 62/79 [09:53<02:42,  9.53s/it]CoT Reasoning:  80%|███████▉  | 63/79 [10:03<02:32,  9.53s/it]CoT Reasoning:  81%|████████  | 64/79 [10:12<02:22,  9.52s/it]CoT Reasoning:  82%|████████▏ | 65/79 [10:22<02:13,  9.52s/it]CoT Reasoning:  84%|████████▎ | 66/79 [10:32<02:03,  9.52s/it]CoT Reasoning:  85%|████████▍ | 67/79 [10:41<01:54,  9.52s/it]CoT Reasoning:  86%|████████▌ | 68/79 [10:51<01:44,  9.52s/it]CoT Reasoning:  87%|████████▋ | 69/79 [11:00<01:35,  9.54s/it]CoT Reasoning:  89%|████████▊ | 70/79 [11:10<01:26,  9.57s/it]CoT Reasoning:  90%|████████▉ | 71/79 [11:19<01:16,  9.56s/it]CoT Reasoning:  91%|█████████ | 72/79 [11:29<01:06,  9.55s/it]CoT Reasoning:  92%|█████████▏| 73/79 [11:38<00:57,  9.56s/it]CoT Reasoning:  94%|█████████▎| 74/79 [11:48<00:47,  9.56s/it]CoT Reasoning:  95%|█████████▍| 75/79 [11:58<00:38,  9.60s/it]CoT Reasoning:  96%|█████████▌| 76/79 [12:07<00:28,  9.61s/it]CoT Reasoning:  97%|█████████▋| 77/79 [12:17<00:19,  9.63s/it]CoT Reasoning:  99%|█████████▊| 78/79 [12:27<00:09,  9.61s/it]CoT Reasoning: 100%|██████████| 79/79 [12:34<00:00,  9.10s/it]CoT Reasoning: 100%|██████████| 79/79 [12:34<00:00,  9.56s/it]
+
+============================================================
+Results for qwen3-8b with strategy_6
+============================================================
+Accuracy:  0.9653
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  9019      0
+  Actual 1:   324      0
+============================================================
+
+Saved predictions to /workspace/results/dev/chain_of_thought_6/qwen3_8b.csv
+
+============================================================
+[24/28] Strategy 6 (chain_of_thought) - qwen3-8b - ood
+============================================================
+
+Strategy 6: Chain-of-Thought Reasoning
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+  Found 128 punctuation marks for CoT analysis
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.18it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.23it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:01,  1.53it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.85it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.53it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  2.01it/s]
+Model compiled with torch.compile
+Model loaded successfully
+CoT Reasoning:   0%|          | 0/16 [00:00<?, ?it/s]CoT Reasoning:   6%|▋         | 1/16 [00:09<02:24,  9.61s/it]CoT Reasoning:  12%|█▎        | 2/16 [00:19<02:14,  9.60s/it]CoT Reasoning:  19%|█▉        | 3/16 [00:28<02:04,  9.59s/it]CoT Reasoning:  25%|██▌       | 4/16 [00:38<01:55,  9.60s/it]CoT Reasoning:  31%|███▏      | 5/16 [00:47<01:45,  9.57s/it]CoT Reasoning:  38%|███▊      | 6/16 [00:57<01:35,  9.58s/it]CoT Reasoning:  44%|████▍     | 7/16 [01:07<01:26,  9.59s/it]CoT Reasoning:  50%|█████     | 8/16 [01:16<01:16,  9.62s/it]CoT Reasoning:  56%|█████▋    | 9/16 [01:26<01:07,  9.62s/it]CoT Reasoning:  62%|██████▎   | 10/16 [01:36<00:57,  9.63s/it]CoT Reasoning:  69%|██████▉   | 11/16 [01:45<00:47,  9.59s/it]CoT Reasoning:  75%|███████▌  | 12/16 [01:55<00:38,  9.64s/it]CoT Reasoning:  81%|████████▏ | 13/16 [02:05<00:28,  9.65s/it]CoT Reasoning:  88%|████████▊ | 14/16 [02:14<00:19,  9.61s/it]CoT Reasoning:  94%|█████████▍| 15/16 [02:24<00:09,  9.60s/it]CoT Reasoning: 100%|██████████| 16/16 [02:33<00:00,  9.62s/it]CoT Reasoning: 100%|██████████| 16/16 [02:33<00:00,  9.61s/it]
+
+============================================================
+Results for qwen3-8b with strategy_6
+============================================================
+Accuracy:  0.9363
+Precision: 0.0000
+Recall:    0.0000
+F1 Score:  0.0000
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1425      1
+  Actual 1:    96      0
+============================================================
+
+Saved predictions to /workspace/results/ood/chain_of_thought_6/qwen3_8b.csv
+
+============================================================
+[25/28] Strategy 7 (iterative_refinement) - llama-3.1-8b - dev
+============================================================
+
+Strategy 7: Iterative Refinement
+Model: llama-3.1-8b
+Dataset: dev (9343 tokens)
+  Pass 1: Initial predictions
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.06s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.05it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Pass 1:   0%|          | 0/12 [00:00<?, ?it/s]Pass 1:   8%|▊         | 1/12 [00:11<02:05, 11.43s/it]Pass 1:  17%|█▋        | 2/12 [00:22<01:54, 11.40s/it]Pass 1:  25%|██▌       | 3/12 [00:34<01:42, 11.41s/it]Pass 1:  33%|███▎      | 4/12 [00:45<01:31, 11.43s/it]Pass 1:  42%|████▏     | 5/12 [00:57<01:19, 11.41s/it]Pass 1:  50%|█████     | 6/12 [01:08<01:08, 11.41s/it]Pass 1:  58%|█████▊    | 7/12 [01:19<00:56, 11.38s/it]Pass 1:  67%|██████▋   | 8/12 [01:31<00:45, 11.38s/it]Pass 1:  75%|███████▌  | 9/12 [01:42<00:34, 11.40s/it]Pass 1:  83%|████████▎ | 10/12 [01:53<00:22, 11.39s/it]Pass 1:  92%|█████████▏| 11/12 [02:05<00:11, 11.40s/it]Pass 1: 100%|██████████| 12/12 [02:16<00:00, 11.20s/it]Pass 1: 100%|██████████| 12/12 [02:16<00:00, 11.34s/it]
+  Pass 2: Verification
+    Found 624 positions to verify
+Pass 2:   0%|          | 0/8 [00:00<?, ?it/s]Pass 2:  12%|█▎        | 1/8 [00:10<01:12, 10.42s/it]Pass 2:  25%|██▌       | 2/8 [00:20<01:02, 10.42s/it]Pass 2:  38%|███▊      | 3/8 [00:31<00:51, 10.40s/it]Pass 2:  50%|█████     | 4/8 [00:41<00:41, 10.38s/it]Pass 2:  62%|██████▎   | 5/8 [00:51<00:31, 10.37s/it]Pass 2:  75%|███████▌  | 6/8 [01:02<00:20, 10.38s/it]Pass 2:  88%|████████▊ | 7/8 [01:12<00:10, 10.39s/it]Pass 2: 100%|██████████| 8/8 [01:22<00:00, 10.25s/it]Pass 2: 100%|██████████| 8/8 [01:22<00:00, 10.33s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_7
+============================================================
+Accuracy:  0.9618
+Precision: 0.4000
+Recall:    0.2037
+F1 Score:  0.2699
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8920     99
+  Actual 1:   258     66
+============================================================
+
+Saved predictions to /workspace/results/dev/iterative_refinement_7/llama_3.1_8b.csv
+
+============================================================
+[26/28] Strategy 7 (iterative_refinement) - llama-3.1-8b - ood
+============================================================
+
+Strategy 7: Iterative Refinement
+Model: llama-3.1-8b
+Dataset: ood (1522 tokens)
+  Pass 1: Initial predictions
+Loading model: meta-llama/Llama-3.1-8B-Instruct
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.32it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.52it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  1.63it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  2.37it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.97it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Pass 1:   0%|          | 0/2 [00:00<?, ?it/s]Pass 1:  50%|█████     | 1/2 [00:11<00:11, 11.42s/it]Pass 1: 100%|██████████| 2/2 [00:22<00:00, 11.47s/it]Pass 1: 100%|██████████| 2/2 [00:22<00:00, 11.47s/it]
+  Pass 2: Verification
+    Found 127 positions to verify
+Pass 2:   0%|          | 0/2 [00:00<?, ?it/s]Pass 2:  50%|█████     | 1/2 [00:10<00:10, 10.52s/it]Pass 2: 100%|██████████| 2/2 [00:19<00:00,  9.65s/it]Pass 2: 100%|██████████| 2/2 [00:19<00:00,  9.78s/it]
+
+============================================================
+Results for llama-3.1-8b with strategy_7
+============================================================
+Accuracy:  0.9382
+Precision: 0.5455
+Recall:    0.1250
+F1 Score:  0.2034
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1416     10
+  Actual 1:    84     12
+============================================================
+
+Saved predictions to /workspace/results/ood/iterative_refinement_7/llama_3.1_8b.csv
+
+============================================================
+[27/28] Strategy 7 (iterative_refinement) - qwen3-8b - dev
+============================================================
+
+Strategy 7: Iterative Refinement
+Model: qwen3-8b
+Dataset: dev (9343 tokens)
+  Pass 1: Initial predictions
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.08s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.03it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.07it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.42it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.23it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Pass 1:   0%|          | 0/12 [00:00<?, ?it/s]Pass 1:   8%|▊         | 1/12 [00:12<02:15, 12.35s/it]Pass 1:  17%|█▋        | 2/12 [00:24<02:03, 12.31s/it]Pass 1:  25%|██▌       | 3/12 [00:36<01:50, 12.33s/it]Pass 1:  33%|███▎      | 4/12 [00:49<01:38, 12.34s/it]Pass 1:  42%|████▏     | 5/12 [01:01<01:26, 12.32s/it]Pass 1:  50%|█████     | 6/12 [01:13<01:13, 12.32s/it]Pass 1:  58%|█████▊    | 7/12 [01:26<01:01, 12.30s/it]Pass 1:  67%|██████▋   | 8/12 [01:38<00:49, 12.30s/it]Pass 1:  75%|███████▌  | 9/12 [01:50<00:36, 12.31s/it]Pass 1:  83%|████████▎ | 10/12 [02:03<00:24, 12.30s/it]Pass 1:  92%|█████████▏| 11/12 [02:15<00:12, 12.31s/it]Pass 1: 100%|██████████| 12/12 [02:27<00:00, 12.11s/it]Pass 1: 100%|██████████| 12/12 [02:27<00:00, 12.26s/it]
+  Pass 2: Verification
+    Found 622 positions to verify
+Pass 2:   0%|          | 0/8 [00:00<?, ?it/s]Pass 2:  12%|█▎        | 1/8 [00:11<01:19, 11.38s/it]Pass 2:  25%|██▌       | 2/8 [00:22<01:08, 11.39s/it]Pass 2:  38%|███▊      | 3/8 [00:34<00:57, 11.40s/it]Pass 2:  50%|█████     | 4/8 [00:45<00:45, 11.39s/it]Pass 2:  62%|██████▎   | 5/8 [00:56<00:34, 11.36s/it]Pass 2:  75%|███████▌  | 6/8 [01:08<00:22, 11.34s/it]Pass 2:  88%|████████▊ | 7/8 [01:19<00:11, 11.31s/it]Pass 2: 100%|██████████| 8/8 [01:30<00:00, 11.15s/it]Pass 2: 100%|██████████| 8/8 [01:30<00:00, 11.28s/it]
+
+============================================================
+Results for qwen3-8b with strategy_7
+============================================================
+Accuracy:  0.9623
+Precision: 0.0333
+Recall:    0.0031
+F1 Score:  0.0056
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  8990     29
+  Actual 1:   323      1
+============================================================
+
+Saved predictions to /workspace/results/dev/iterative_refinement_7/qwen3_8b.csv
+
+============================================================
+[28/28] Strategy 7 (iterative_refinement) - qwen3-8b - ood
+============================================================
+
+Strategy 7: Iterative Refinement
+Model: qwen3-8b
+Dataset: ood (1522 tokens)
+  Pass 1: Initial predictions
+Loading model: Qwen/Qwen3-8B
+CUDA available: NVIDIA RTX A4500
+CUDA memory: 21.2 GB
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  2.24it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:01,  2.18it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:01<00:00,  2.20it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  2.40it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.17it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  2.69it/s]
+Model compiled with torch.compile
+Model loaded successfully
+Pass 1:   0%|          | 0/2 [00:00<?, ?it/s]Pass 1:  50%|█████     | 1/2 [00:12<00:12, 12.35s/it]Pass 1: 100%|██████████| 2/2 [00:24<00:00, 12.39s/it]Pass 1: 100%|██████████| 2/2 [00:24<00:00, 12.39s/it]
+  Pass 2: Verification
+    Found 121 positions to verify
+Pass 2:   0%|          | 0/2 [00:00<?, ?it/s]Pass 2:  50%|█████     | 1/2 [00:11<00:11, 11.29s/it]Pass 2: 100%|██████████| 2/2 [00:21<00:00, 10.44s/it]Pass 2: 100%|██████████| 2/2 [00:21<00:00, 10.56s/it]
+
+============================================================
+Results for qwen3-8b with strategy_7
+============================================================
+Accuracy:  0.9356
+Precision: 0.2500
+Recall:    0.0104
+F1 Score:  0.0200
+
+Confusion Matrix:
+  Predicted:  0      1
+  Actual 0:  1423      3
+  Actual 1:    95      1
+============================================================
+
+Saved predictions to /workspace/results/ood/iterative_refinement_7/qwen3_8b.csv
+
+====================================================================================================
+RESULTS SUMMARY
+====================================================================================================
+Strategy                  Model              Dataset  F1         Prec       Recall    
+----------------------------------------------------------------------------------------------------
+sliding_window            llama-3.1-8b       dev      0.0000    0.0000    0.0000
+sliding_window            llama-3.1-8b       ood      0.0404    0.6667    0.0208
+sliding_window            qwen3-8b           dev      0.0000    0.0000    0.0000
+sliding_window            qwen3-8b           ood      0.0000    0.0000    0.0000
+next_token_prob           llama-3.1-8b       dev      0.0000    0.0000    0.0000
+next_token_prob           llama-3.1-8b       ood      0.0000    0.0000    0.0000
+next_token_prob           qwen3-8b           dev      0.0123    1.0000    0.0062
+next_token_prob           qwen3-8b           ood      0.0000    0.0000    0.0000
+marker_insertion          llama-3.1-8b       dev      0.5874    0.4840    0.7469
+marker_insertion          llama-3.1-8b       ood      0.8372    0.7563    0.9375
+marker_insertion          qwen3-8b           dev      0.0123    0.0183    0.0093
+marker_insertion          qwen3-8b           ood      0.0000    0.0000    0.0000
+structured_json           llama-3.1-8b       dev      0.3312    0.2343    0.5648
+structured_json           llama-3.1-8b       ood      0.4717    0.4310    0.5208
+structured_json           qwen3-8b           dev      0.1864    0.1299    0.3302
+structured_json           qwen3-8b           ood      0.2879    0.2262    0.3958
+few_shot_hard             llama-3.1-8b       dev      0.0116    0.0952    0.0062
+few_shot_hard             llama-3.1-8b       ood      0.0370    0.1667    0.0208
+few_shot_hard             qwen3-8b           dev      0.0000    0.0000    0.0000
+few_shot_hard             qwen3-8b           ood      0.0000    0.0000    0.0000
+chain_of_thought          llama-3.1-8b       dev      0.4435    0.7172    0.3210
+chain_of_thought          llama-3.1-8b       ood      0.5035    0.7660    0.3750
+chain_of_thought          qwen3-8b           dev      0.0000    0.0000    0.0000
+chain_of_thought          qwen3-8b           ood      0.0000    0.0000    0.0000
+iterative_refinement      llama-3.1-8b       dev      0.2699    0.4000    0.2037
+iterative_refinement      llama-3.1-8b       ood      0.2034    0.5455    0.1250
+iterative_refinement      qwen3-8b           dev      0.0056    0.0333    0.0031
+iterative_refinement      qwen3-8b           ood      0.0200    0.2500    0.0104
+====================================================================================================
+
+Summary saved to: results/strategies_summary_20251222_105322.json
+
+[0;32m========================================[0m
+[0;32mDone![0m
+[0;32mResults in: ./results/{dev,ood}/{strategy_name}_{id}/[0m
+[0;32m========================================[0m
+
+[1;33mGenerated files:[0m
+results/dev/chain_of_thought_6/llama_3.1_1b.csv
+results/dev/chain_of_thought_6/llama_3.1_3b.csv
+results/dev/chain_of_thought_6/llama_3.1_8b.csv
+results/dev/chain_of_thought_6/qwen3_8b.csv
+results/dev/few_shot_hard_5/llama_3.1_1b.csv
+results/dev/few_shot_hard_5/llama_3.1_3b.csv
+results/dev/few_shot_hard_5/llama_3.1_8b.csv
+results/dev/few_shot_hard_5/qwen3_8b.csv
+results/dev/iterative_refinement_7/llama_3.1_1b.csv
+results/dev/iterative_refinement_7/llama_3.1_3b.csv
+results/dev/iterative_refinement_7/llama_3.1_8b.csv
+results/dev/iterative_refinement_7/qwen3_8b.csv
+results/dev/marker_insertion_3/llama_3.1_1b.csv
+results/dev/marker_insertion_3/llama_3.1_3b.csv
+results/dev/marker_insertion_3/llama_3.1_8b.csv
+results/dev/marker_insertion_3/qwen3_8b.csv
+results/dev/next_token_prob_2/llama_3.1_1b.csv
+results/dev/next_token_prob_2/llama_3.1_3b.csv
+results/dev/next_token_prob_2/llama_3.1_8b.csv
+results/dev/next_token_prob_2/qwen3_8b.csv
+results/dev/sliding_window_1/llama_3.1_1b.csv
+results/dev/sliding_window_1/llama_3.1_3b.csv
+results/dev/sliding_window_1/llama_3.1_8b.csv
+results/dev/sliding_window_1/qwen3_8b.csv
+results/dev/structured_json_4/llama_3.1_1b.csv
+results/dev/structured_json_4/llama_3.1_3b.csv
+results/dev/structured_json_4/llama_3.1_8b.csv
+results/dev/structured_json_4/qwen3_8b.csv
+results/ood/chain_of_thought_6/llama_3.1_1b.csv
+results/ood/chain_of_thought_6/llama_3.1_3b.csv
+results/ood/chain_of_thought_6/llama_3.1_8b.csv
+results/ood/chain_of_thought_6/qwen3_8b.csv
+results/ood/few_shot_hard_5/llama_3.1_1b.csv
+results/ood/few_shot_hard_5/llama_3.1_3b.csv
+results/ood/few_shot_hard_5/llama_3.1_8b.csv
+results/ood/few_shot_hard_5/qwen3_8b.csv
+results/ood/iterative_refinement_7/llama_3.1_1b.csv
+results/ood/iterative_refinement_7/llama_3.1_3b.csv
+results/ood/iterative_refinement_7/llama_3.1_8b.csv
+results/ood/iterative_refinement_7/qwen3_8b.csv
+results/ood/marker_insertion_3/llama_3.1_1b.csv
+results/ood/marker_insertion_3/llama_3.1_3b.csv
+results/ood/marker_insertion_3/llama_3.1_8b.csv
+results/ood/marker_insertion_3/qwen3_8b.csv
+results/ood/next_token_prob_2/llama_3.1_1b.csv
+results/ood/next_token_prob_2/llama_3.1_3b.csv
+results/ood/next_token_prob_2/llama_3.1_8b.csv
+results/ood/next_token_prob_2/qwen3_8b.csv
+results/ood/sliding_window_1/llama_3.1_1b.csv
+results/ood/sliding_window_1/llama_3.1_3b.csv

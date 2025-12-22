@@ -1,0 +1,618 @@
+[
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9653216311677192,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          9019,
+          0
+        ],
+        [
+          324,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 1,
+    "strategy_name": "sliding_window"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9375821287779238,
+      "precision": 0.6666666666666666,
+      "recall": 0.020833333333333332,
+      "f1": 0.04040404040404041,
+      "confusion_matrix": [
+        [
+          1425,
+          1
+        ],
+        [
+          94,
+          2
+        ]
+      ]
+    },
+    "strategy_id": 1,
+    "strategy_name": "sliding_window"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9653216311677192,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          9019,
+          0
+        ],
+        [
+          324,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 1,
+    "strategy_name": "sliding_window"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9369250985545335,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1426,
+          0
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 1,
+    "strategy_name": "sliding_window"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9653216311677192,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          9019,
+          0
+        ],
+        [
+          324,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 2,
+    "strategy_name": "next_token_prob"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9369250985545335,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1426,
+          0
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 2,
+    "strategy_name": "next_token_prob"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9655356951728566,
+      "precision": 1.0,
+      "recall": 0.006172839506172839,
+      "f1": 0.012269938650306749,
+      "confusion_matrix": [
+        [
+          9019,
+          0
+        ],
+        [
+          322,
+          2
+        ]
+      ]
+    },
+    "strategy_id": 2,
+    "strategy_name": "next_token_prob"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9369250985545335,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1426,
+          0
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 2,
+    "strategy_name": "next_token_prob"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9636091191266188,
+      "precision": 0.484,
+      "recall": 0.7469135802469136,
+      "f1": 0.587378640776699,
+      "confusion_matrix": [
+        [
+          8761,
+          258
+        ],
+        [
+          82,
+          242
+        ]
+      ]
+    },
+    "strategy_id": 3,
+    "strategy_name": "marker_insertion"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9770039421813403,
+      "precision": 0.7563025210084033,
+      "recall": 0.9375,
+      "f1": 0.8372093023255814,
+      "confusion_matrix": [
+        [
+          1397,
+          29
+        ],
+        [
+          6,
+          90
+        ]
+      ]
+    },
+    "strategy_id": 3,
+    "strategy_name": "marker_insertion"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9484105747618538,
+      "precision": 0.018292682926829267,
+      "recall": 0.009259259259259259,
+      "f1": 0.012295081967213115,
+      "confusion_matrix": [
+        [
+          8858,
+          161
+        ],
+        [
+          321,
+          3
+        ]
+      ]
+    },
+    "strategy_id": 3,
+    "strategy_name": "marker_insertion"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9132720105124835,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1390,
+          36
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 3,
+    "strategy_name": "marker_insertion"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9209033501016805,
+      "precision": 0.23431498079385404,
+      "recall": 0.5648148148148148,
+      "f1": 0.33122171945701356,
+      "confusion_matrix": [
+        [
+          8421,
+          598
+        ],
+        [
+          141,
+          183
+        ]
+      ]
+    },
+    "strategy_id": 4,
+    "strategy_name": "structured_json"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.926412614980289,
+      "precision": 0.43103448275862066,
+      "recall": 0.5208333333333334,
+      "f1": 0.4716981132075472,
+      "confusion_matrix": [
+        [
+          1360,
+          66
+        ],
+        [
+          46,
+          50
+        ]
+      ]
+    },
+    "strategy_id": 4,
+    "strategy_name": "structured_json"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9000321096007706,
+      "precision": 0.12985436893203883,
+      "recall": 0.33024691358024694,
+      "f1": 0.18641114982578397,
+      "confusion_matrix": [
+        [
+          8302,
+          717
+        ],
+        [
+          217,
+          107
+        ]
+      ]
+    },
+    "strategy_id": 4,
+    "strategy_name": "structured_json"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.8764783180026281,
+      "precision": 0.2261904761904762,
+      "recall": 0.3958333333333333,
+      "f1": 0.2878787878787879,
+      "confusion_matrix": [
+        [
+          1296,
+          130
+        ],
+        [
+          58,
+          38
+        ]
+      ]
+    },
+    "strategy_id": 4,
+    "strategy_name": "structured_json"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.96350208712405,
+      "precision": 0.09523809523809523,
+      "recall": 0.006172839506172839,
+      "f1": 0.011594202898550725,
+      "confusion_matrix": [
+        [
+          9000,
+          19
+        ],
+        [
+          322,
+          2
+        ]
+      ]
+    },
+    "strategy_id": 5,
+    "strategy_name": "few_shot_hard"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9316688567674113,
+      "precision": 0.16666666666666666,
+      "recall": 0.020833333333333332,
+      "f1": 0.037037037037037035,
+      "confusion_matrix": [
+        [
+          1416,
+          10
+        ],
+        [
+          94,
+          2
+        ]
+      ]
+    },
+    "strategy_id": 5,
+    "strategy_name": "few_shot_hard"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9650005351600128,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          9016,
+          3
+        ],
+        [
+          324,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 5,
+    "strategy_name": "few_shot_hard"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9362680683311432,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1425,
+          1
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 5,
+    "strategy_name": "few_shot_hard"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9720646473295516,
+      "precision": 0.7172413793103448,
+      "recall": 0.32098765432098764,
+      "f1": 0.44349680170575695,
+      "confusion_matrix": [
+        [
+          8978,
+          41
+        ],
+        [
+          220,
+          104
+        ]
+      ]
+    },
+    "strategy_id": 6,
+    "strategy_name": "chain_of_thought"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9533508541392904,
+      "precision": 0.7659574468085106,
+      "recall": 0.375,
+      "f1": 0.5034965034965035,
+      "confusion_matrix": [
+        [
+          1415,
+          11
+        ],
+        [
+          60,
+          36
+        ]
+      ]
+    },
+    "strategy_id": 6,
+    "strategy_name": "chain_of_thought"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9653216311677192,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          9019,
+          0
+        ],
+        [
+          324,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 6,
+    "strategy_name": "chain_of_thought"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9362680683311432,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "confusion_matrix": [
+        [
+          1425,
+          1
+        ],
+        [
+          96,
+          0
+        ]
+      ]
+    },
+    "strategy_id": 6,
+    "strategy_name": "chain_of_thought"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9617895750829498,
+      "precision": 0.4,
+      "recall": 0.2037037037037037,
+      "f1": 0.26993865030674846,
+      "confusion_matrix": [
+        [
+          8920,
+          99
+        ],
+        [
+          258,
+          66
+        ]
+      ]
+    },
+    "strategy_id": 7,
+    "strategy_name": "iterative_refinement"
+  },
+  {
+    "model": "llama-3.1-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.938239159001314,
+      "precision": 0.5454545454545454,
+      "recall": 0.125,
+      "f1": 0.2033898305084746,
+      "confusion_matrix": [
+        [
+          1416,
+          10
+        ],
+        [
+          84,
+          12
+        ]
+      ]
+    },
+    "strategy_id": 7,
+    "strategy_name": "iterative_refinement"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "dev",
+    "metrics": {
+      "accuracy": 0.9623247350957936,
+      "precision": 0.03333333333333333,
+      "recall": 0.0030864197530864196,
+      "f1": 0.005649717514124294,
+      "confusion_matrix": [
+        [
+          8990,
+          29
+        ],
+        [
+          323,
+          1
+        ]
+      ]
+    },
+    "strategy_id": 7,
+    "strategy_name": "iterative_refinement"
+  },
+  {
+    "model": "qwen3-8b",
+    "dataset": "ood",
+    "metrics": {
+      "accuracy": 0.9356110381077529,
+      "precision": 0.25,
+      "recall": 0.010416666666666666,
+      "f1": 0.02,
+      "confusion_matrix": [
+        [
+          1423,
+          3
+        ],
+        [
+          95,
+          1
+        ]
+      ]
+    },
+    "strategy_id": 7,
+    "strategy_name": "iterative_refinement"
+  }
+]
