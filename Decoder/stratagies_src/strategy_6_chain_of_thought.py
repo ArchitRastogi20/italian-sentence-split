@@ -1,15 +1,16 @@
 """
-Strategy 1: Sliding Window Binary Classification
+Strategy 6: Chain-of-Thought Reasoning
 
-For each punctuation mark, extract context window and ask YES/NO if it's a boundary.
+Ask model to reason step by step about each potential boundary.
+More expensive but potentially more accurate for hard cases.
 """
 
 import os
-import sys
-from typing import List, Tuple, Dict
+import re
+from typing import List, Dict
 from tqdm import tqdm
 
-from utils import (
+from stratagies_src.utils import (
     load_manzoni_data,
     load_ood_data,
     evaluate_predictions,
@@ -18,64 +19,72 @@ from utils import (
     get_data_paths,
 )
 
-STRATEGY_ID = 1
-STRATEGY_NAME = "sliding_window"
+STRATEGY_ID = 6
+STRATEGY_NAME = "chain_of_thought"
 
 
 def get_punctuation_indices(tokens: List[str]) -> List[int]:
-    """Find indices of punctuation marks that could be sentence boundaries."""
+    """Find indices of punctuation marks."""
     punctuation = {'.', '!', '?', ';', ':', '...', '…'}
     indices = []
     for i, token in enumerate(tokens):
-        if token in punctuation or (len(token) == 1 and token in '.!?;:'):
+        if token in punctuation:
             indices.append(i)
     return indices
 
 
-def create_context_window(tokens: List[str], idx: int, window_size: int = 15) -> str:
-    """Create context window around a token."""
-    start = max(0, idx - window_size)
-    end = min(len(tokens), idx + window_size + 1)
+def create_cot_prompt(tokens: List[str], punct_idx: int, context_size: int = 20) -> str:
+    """Create chain-of-thought prompt for a single punctuation mark."""
+    start = max(0, punct_idx - context_size)
+    end = min(len(tokens), punct_idx + context_size + 1)
     
-    context_tokens = tokens[start:end]
-    target_pos = idx - start
+    before = " ".join(tokens[start:punct_idx])
+    punct = tokens[punct_idx]
+    after = " ".join(tokens[punct_idx + 1:end]) if punct_idx + 1 < end else ""
     
-    # Mark the target token
-    context_str = " ".join(context_tokens[:target_pos])
-    context_str += f" [{tokens[idx]}] "
-    context_str += " ".join(context_tokens[target_pos + 1:])
+    # Get next word if available
+    next_word = tokens[punct_idx + 1] if punct_idx + 1 < len(tokens) else "END"
     
-    return context_str.strip()
+    prompt = f"""Analyze if this punctuation mark ends a sentence in Italian text.
 
+Context before: "{before}"
+Punctuation: [{punct}]
+Context after: "{after}"
+Next word: "{next_word}"
 
-def create_binary_prompt(context: str, token: str) -> str:
-    """Create YES/NO prompt for boundary detection."""
-    prompt = f"""You are analyzing Italian text for sentence boundaries.
+Think step by step:
+1. What type of punctuation is this?
+2. Is the text before a complete thought?
+3. Does the next word start a new sentence (capital letter, new subject)?
+4. Could this be part of an abbreviation or special construction?
 
-Context: "{context}"
+After reasoning, answer with FINAL: YES or FINAL: NO
 
-The token in brackets [{token}] is a punctuation mark.
-
-Question: Does this punctuation mark end a sentence? 
-
-Rules:
-- Period (.) usually ends sentences, but not in abbreviations like "S." or "dott."
-- Semicolon (;) rarely ends sentences in Italian literary text
-- Question mark (?) and exclamation mark (!) end sentences
-- Consider if the next word starts a new thought
-
-Answer with ONLY "YES" or "NO":"""
+Your analysis:"""
     return prompt
 
 
-def parse_binary_response(response: str) -> int:
-    """Parse YES/NO response to 0/1."""
-    response = response.strip().upper()
-    if response.startswith("YES"):
+def parse_cot_response(response: str) -> int:
+    """Parse CoT response to extract final answer."""
+    response = response.upper()
+    
+    # Look for explicit FINAL answer
+    final_match = re.search(r'FINAL:\s*(YES|NO)', response)
+    if final_match:
+        return 1 if final_match.group(1) == "YES" else 0
+    
+    # Look for answer at end
+    if response.strip().endswith("YES"):
         return 1
-    elif response.startswith("NO"):
+    if response.strip().endswith("NO"):
         return 0
-    if "YES" in response:
+    
+    # Count YES/NO occurrences in conclusion
+    last_100 = response[-100:]
+    yes_count = last_100.count("YES")
+    no_count = last_100.count("NO")
+    
+    if yes_count > no_count:
         return 1
     return 0
 
@@ -84,37 +93,37 @@ def run_strategy_local(
     model_key: str,
     tokens: List[str],
     labels: List[int],
-    batch_size: int = 16,
+    batch_size: int = 8,
 ) -> List[int]:
-    """Run strategy 1 with local model."""
-    from local_models import LocalModelInference
-    
+    """Run strategy 6 with local model."""
+    from model_calls.local_models import LocalModelInference
+
     predictions = [0] * len(tokens)
     punct_indices = get_punctuation_indices(tokens)
-    print(f"  Found {len(punct_indices)} punctuation marks to classify")
+    print(f"  Found {len(punct_indices)} punctuation marks for CoT analysis")
     
     if len(punct_indices) == 0:
         return predictions
     
     prompts = []
     for idx in punct_indices:
-        context = create_context_window(tokens, idx)
-        prompt = create_binary_prompt(context, tokens[idx])
+        prompt = create_cot_prompt(tokens, idx)
         prompts.append(prompt)
     
     model = LocalModelInference(model_key=model_key)
     
     try:
         responses = []
-        for i in tqdm(range(0, len(prompts), batch_size), desc="Classifying"):
+        for i in tqdm(range(0, len(prompts), batch_size), desc="CoT Reasoning"):
             batch = prompts[i:i + batch_size]
-            batch_responses = model.generate_batch(batch, max_new_tokens=10, batch_size=len(batch))
+            # More tokens for reasoning
+            batch_responses = model.generate_batch(batch, max_new_tokens=200, batch_size=len(batch))
             responses.extend(batch_responses)
     finally:
         model.cleanup()
     
     for idx, response in zip(punct_indices, responses):
-        predictions[idx] = parse_binary_response(response)
+        predictions[idx] = parse_cot_response(response)
     
     return predictions
 
@@ -124,33 +133,31 @@ def run_strategy_openrouter(
     tokens: List[str],
     labels: List[int],
 ) -> List[int]:
-    """Run strategy 1 with OpenRouter API."""
-    from openrouter_api import OpenRouterClient
+    """Run strategy 6 with OpenRouter API."""
+    from model_calls.openrouter_api import OpenRouterClient
     
     predictions = [0] * len(tokens)
     punct_indices = get_punctuation_indices(tokens)
-    print(f"  Found {len(punct_indices)} punctuation marks to classify")
+    print(f"  Found {len(punct_indices)} punctuation marks for CoT analysis")
     
     if len(punct_indices) == 0:
         return predictions
     
     client = OpenRouterClient()
     
-    for idx in tqdm(punct_indices, desc="Classifying"):
-        context = create_context_window(tokens, idx)
-        prompt = create_binary_prompt(context, tokens[idx])
+    for idx in tqdm(punct_indices, desc="CoT Reasoning"):
+        prompt = create_cot_prompt(tokens, idx)
         
         try:
             response = client.generate(
                 model=model_key,
                 prompt=prompt,
-                max_tokens=10,
+                max_tokens=250,
                 temperature=0.1
             )
-            predictions[idx] = parse_binary_response(response)
+            predictions[idx] = parse_cot_response(response)
         except Exception as e:
             print(f"Error at index {idx}: {e}")
-            predictions[idx] = 0
     
     return predictions
 
@@ -161,7 +168,7 @@ def run_experiment(
     api: str = "auto",
     output_base_dir: str = "results",
 ) -> Dict:
-    """Run strategy 1 experiment."""
+    """Run strategy 6 experiment."""
     paths = get_data_paths()
     
     if dataset == "ood":
@@ -171,7 +178,7 @@ def run_experiment(
     else:
         tokens, labels = load_manzoni_data(paths['dev'])
     
-    print(f"\nStrategy 1: Sliding Window Binary Classification")
+    print(f"\nStrategy 6: Chain-of-Thought Reasoning")
     print(f"Model: {model_key}")
     print(f"Dataset: {dataset} ({len(tokens)} tokens)")
     

@@ -22,8 +22,8 @@ OPENROUTER_MODELS = {
     "gpt-oss-120b": "openai/gpt-oss-120b:free",
     "gpt-oss-20b": "openai/gpt-oss-20b:free",
     "kimi-k2": "moonshotai/kimi-k2:free",
-    "qwen3-8b": "qwen/qwen3-8b:free",
-    "llama-3.1-8b": "meta-llama/llama-3.1-8b-instruct:free",
+    # "qwen3-8b": "qwen/qwen3-8b:free",
+    # "llama-3.1-8b": "meta-llama/llama-3.1-8b-instruct:free",
     "glm-z1-9b": "thudm/glm-z1-9b-0414:free",
 }
 
@@ -38,7 +38,7 @@ class OpenRouterClient:
         Initialize OpenRouter client.
         
         Args:
-            api_key: OpenRouter API key. If None, reads from OPENROUTER_API_KEY env var.
+            api_key: OpenRouter API key. If None, reads from model_calls.openrouter_api_KEY env var.
         """
         self.api_key = api_key or os.getenv("OPENROUTER_API_KEY")
         

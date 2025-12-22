@@ -10,7 +10,7 @@ import re
 from typing import List, Dict
 from tqdm import tqdm
 
-from utils import (
+from stratagies_src.utils import (
     load_manzoni_data,
     load_ood_data,
     evaluate_predictions,
@@ -141,7 +141,7 @@ def run_strategy_local(
     use_json: bool = True,
 ) -> List[int]:
     """Run strategy 4 with local model."""
-    from local_models import LocalModelInference
+    from model_calls.local_models import LocalModelInference
     
     predictions = [0] * len(tokens)
     
@@ -189,7 +189,7 @@ def run_strategy_openrouter(
     use_json: bool = True,
 ) -> List[int]:
     """Run strategy 4 with OpenRouter API."""
-    from openrouter_api import OpenRouterClient
+    from model_calls.openrouter_api import OpenRouterClient
     
     predictions = [0] * len(tokens)
     client = OpenRouterClient()
