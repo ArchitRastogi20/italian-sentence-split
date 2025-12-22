@@ -1,149 +1,0 @@
-[0;32m========================================[0m
-[0;32mSentence Splitting - 7 Strategies[0m
-[0;32m========================================[0m
-
-[1;33mChecking CUDA...[0m
-CUDA: True, Device: NVIDIA RTX A4500
-
-[0;32mRunning ALL strategies with ALL models on ALL datasets[0m
-`torch_dtype` is deprecated! Use `dtype` instead!
-Running strategies: [1, 2, 3, 4, 5, 6, 7]
-Models: ['llama-3.1-1b', 'llama-3.1-3b', 'gpt-oss-20b', 'kimi-k2']
-Datasets: ['dev', 'ood']
-
-============================================================
-[1/56] Strategy 1 (sliding_window) - llama-3.1-1b - dev
-============================================================
-
-Strategy 1: Sliding Window Binary Classification
-Model: llama-3.1-1b
-Dataset: dev (9343 tokens)
-  Found 626 punctuation marks to classify
-Loading model: meta-llama/Llama-3.2-1B-Instruct
-CUDA available: NVIDIA RTX A4500
-CUDA memory: 21.2 GB
-Model compiled with torch.compile
-Model loaded successfully
-Classifying:   0%|          | 0/40 [00:00<?, ?it/s]Classifying:   2%|▎         | 1/40 [00:00<00:22,  1.76it/s]Classifying:   5%|▌         | 2/40 [00:00<00:12,  3.16it/s]Classifying:   8%|▊         | 3/40 [00:00<00:08,  4.21it/s]Classifying:  10%|█         | 4/40 [00:00<00:07,  5.04it/s]Classifying:  12%|█▎        | 5/40 [00:01<00:06,  5.66it/s]Classifying:  15%|█▌        | 6/40 [00:01<00:05,  6.09it/s]Classifying:  18%|█▊        | 7/40 [00:01<00:05,  6.43it/s]Classifying:  20%|██        | 8/40 [00:01<00:04,  6.77it/s]Classifying:  22%|██▎       | 9/40 [00:01<00:04,  6.91it/s]Classifying:  25%|██▌       | 10/40 [00:01<00:04,  6.98it/s]Classifying:  28%|██▊       | 11/40 [00:01<00:04,  7.00it/s]Classifying:  30%|███       | 12/40 [00:02<00:03,  7.07it/s]Classifying:  32%|███▎      | 13/40 [00:02<00:03,  7.22it/s]Classifying:  35%|███▌      | 14/40 [00:02<00:03,  7.25it/s]Classifying:  38%|███▊      | 15/40 [00:02<00:03,  7.27it/s]Classifying:  40%|████      | 16/40 [00:02<00:03,  7.27it/s]Classifying:  42%|████▎     | 17/40 [00:02<00:03,  7.30it/s]Classifying:  45%|████▌     | 18/40 [00:02<00:03,  7.29it/s]Classifying:  48%|████▊     | 19/40 [00:03<00:02,  7.26it/s]Classifying:  50%|█████     | 20/40 [00:03<00:02,  7.34it/s]Classifying:  52%|█████▎    | 21/40 [00:03<00:02,  7.32it/s]Classifying:  55%|█████▌    | 22/40 [00:03<00:02,  7.32it/s]Classifying:  57%|█████▊    | 23/40 [00:03<00:02,  7.33it/s]Classifying:  60%|██████    | 24/40 [00:03<00:02,  7.41it/s]Classifying:  62%|██████▎   | 25/40 [00:03<00:02,  7.37it/s]Classifying:  65%|██████▌   | 26/40 [00:04<00:01,  7.31it/s]Classifying:  68%|██████▊   | 27/40 [00:04<00:01,  7.25it/s]Classifying:  70%|███████   | 28/40 [00:04<00:01,  7.26it/s]Classifying:  72%|███████▎  | 29/40 [00:04<00:01,  7.23it/s]Classifying:  75%|███████▌  | 30/40 [00:04<00:01,  7.31it/s]Classifying:  78%|███████▊  | 31/40 [00:04<00:01,  7.37it/s]Classifying:  80%|████████  | 32/40 [00:04<00:01,  7.44it/s]Classifying:  82%|████████▎ | 33/40 [00:04<00:00,  7.50it/s]Classifying:  85%|████████▌ | 34/40 [00:05<00:00,  7.45it/s]Classifying:  88%|████████▊ | 35/40 [00:05<00:00,  7.38it/s]Classifying:  90%|█████████ | 36/40 [00:05<00:00,  7.44it/s]Classifying:  92%|█████████▎| 37/40 [00:05<00:00,  7.39it/s]Classifying:  95%|█████████▌| 38/40 [00:05<00:00,  7.30it/s]Classifying:  98%|█████████▊| 39/40 [00:05<00:00,  7.22it/s]Classifying: 100%|██████████| 40/40 [00:05<00:00,  6.89it/s]
-
-============================================================
-Results for llama-3.1-1b with strategy_1
-============================================================
-Accuracy:  0.9653
-Precision: 0.0000
-Recall:    0.0000
-F1 Score:  0.0000
-
-Confusion Matrix:
-  Predicted:  0      1
-  Actual 0:  9019      0
-  Actual 1:   324      0
-============================================================
-
-Saved predictions to /workspace/results/dev/sliding_window_1/llama_3.1_1b.csv
-
-============================================================
-[2/56] Strategy 1 (sliding_window) - llama-3.1-1b - ood
-============================================================
-
-Strategy 1: Sliding Window Binary Classification
-Model: llama-3.1-1b
-Dataset: ood (1522 tokens)
-  Found 128 punctuation marks to classify
-Loading model: meta-llama/Llama-3.2-1B-Instruct
-CUDA available: NVIDIA RTX A4500
-CUDA memory: 21.2 GB
-Model compiled with torch.compile
-Model loaded successfully
-Classifying:   0%|          | 0/8 [00:00<?, ?it/s]Classifying:  12%|█▎        | 1/8 [00:00<00:00,  7.20it/s]Classifying:  25%|██▌       | 2/8 [00:00<00:00,  7.17it/s]Classifying:  38%|███▊      | 3/8 [00:00<00:00,  7.23it/s]Classifying:  50%|█████     | 4/8 [00:00<00:00,  7.16it/s]Classifying:  62%|██████▎   | 5/8 [00:00<00:00,  7.15it/s]Classifying:  75%|███████▌  | 6/8 [00:00<00:00,  7.13it/s]Classifying:  88%|████████▊ | 7/8 [00:00<00:00,  7.16it/s]Classifying: 100%|██████████| 8/8 [00:01<00:00,  7.16it/s]Classifying: 100%|██████████| 8/8 [00:01<00:00,  7.16it/s]
-
-============================================================
-Results for llama-3.1-1b with strategy_1
-============================================================
-Accuracy:  0.9369
-Precision: 0.0000
-Recall:    0.0000
-F1 Score:  0.0000
-
-Confusion Matrix:
-  Predicted:  0      1
-  Actual 0:  1426      0
-  Actual 1:    96      0
-============================================================
-
-Saved predictions to /workspace/results/ood/sliding_window_1/llama_3.1_1b.csv
-
-============================================================
-[3/56] Strategy 1 (sliding_window) - llama-3.1-3b - dev
-============================================================
-
-Strategy 1: Sliding Window Binary Classification
-Model: llama-3.1-3b
-Dataset: dev (9343 tokens)
-  Found 626 punctuation marks to classify
-Loading model: meta-llama/Llama-3.2-3B-Instruct
-CUDA available: NVIDIA RTX A4500
-CUDA memory: 21.2 GB
-Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:52<00:52, 52.22s/it]Fetching 2 files: 100%|██████████| 2/2 [00:52<00:00, 26.11s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.74it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.96it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.68it/s]
-Model compiled with torch.compile
-Model loaded successfully
-Classifying:   0%|          | 0/40 [00:00<?, ?it/s]Classifying:   2%|▎         | 1/40 [00:00<00:14,  2.70it/s]Classifying:   5%|▌         | 2/40 [00:00<00:14,  2.71it/s]Classifying:   8%|▊         | 3/40 [00:01<00:13,  2.71it/s]Classifying:  10%|█         | 4/40 [00:01<00:13,  2.72it/s]Classifying:  12%|█▎        | 5/40 [00:01<00:12,  2.72it/s]Classifying:  15%|█▌        | 6/40 [00:02<00:12,  2.71it/s]Classifying:  18%|█▊        | 7/40 [00:02<00:12,  2.71it/s]Classifying:  20%|██        | 8/40 [00:02<00:11,  2.76it/s]Classifying:  22%|██▎       | 9/40 [00:03<00:11,  2.74it/s]Classifying:  25%|██▌       | 10/40 [00:03<00:10,  2.73it/s]Classifying:  28%|██▊       | 11/40 [00:04<00:10,  2.72it/s]Classifying:  30%|███       | 12/40 [00:04<00:10,  2.72it/s]Classifying:  32%|███▎      | 13/40 [00:04<00:09,  2.76it/s]Classifying:  35%|███▌      | 14/40 [00:05<00:09,  2.75it/s]Classifying:  38%|███▊      | 15/40 [00:05<00:09,  2.75it/s]Classifying:  40%|████      | 16/40 [00:05<00:08,  2.75it/s]Classifying:  42%|████▎     | 17/40 [00:06<00:08,  2.75it/s]Classifying:  45%|████▌     | 18/40 [00:06<00:08,  2.75it/s]Classifying:  48%|████▊     | 19/40 [00:06<00:07,  2.74it/s]Classifying:  50%|█████     | 20/40 [00:07<00:07,  2.78it/s]Classifying:  52%|█████▎    | 21/40 [00:07<00:06,  2.77it/s]Classifying:  55%|█████▌    | 22/40 [00:08<00:06,  2.76it/s]Classifying:  57%|█████▊    | 23/40 [00:08<00:06,  2.76it/s]Classifying:  60%|██████    | 24/40 [00:08<00:05,  2.79it/s]Classifying:  62%|██████▎   | 25/40 [00:09<00:05,  2.77it/s]Classifying:  65%|██████▌   | 26/40 [00:09<00:05,  2.76it/s]Classifying:  68%|██████▊   | 27/40 [00:09<00:04,  2.75it/s]Classifying:  70%|███████   | 28/40 [00:10<00:04,  2.74it/s]Classifying:  72%|███████▎  | 29/40 [00:10<00:04,  2.74it/s]Classifying:  75%|███████▌  | 30/40 [00:10<00:03,  2.77it/s]Classifying:  78%|███████▊  | 31/40 [00:11<00:03,  2.79it/s]Classifying:  80%|████████  | 32/40 [00:11<00:02,  2.81it/s]Classifying:  82%|████████▎ | 33/40 [00:11<00:02,  2.82it/s]Classifying:  85%|████████▌ | 34/40 [00:12<00:02,  2.80it/s]Classifying:  88%|████████▊ | 35/40 [00:12<00:01,  2.78it/s]Classifying:  90%|█████████ | 36/40 [00:13<00:01,  2.79it/s]Classifying:  92%|█████████▎| 37/40 [00:13<00:01,  2.77it/s]Classifying:  95%|█████████▌| 38/40 [00:13<00:00,  2.75it/s]Classifying:  98%|█████████▊| 39/40 [00:14<00:00,  2.73it/s]Classifying: 100%|██████████| 40/40 [00:14<00:00,  2.81it/s]
-
-============================================================
-Results for llama-3.1-3b with strategy_1
-============================================================
-Accuracy:  0.9653
-Precision: 0.0000
-Recall:    0.0000
-F1 Score:  0.0000
-
-Confusion Matrix:
-  Predicted:  0      1
-  Actual 0:  9019      0
-  Actual 1:   324      0
-============================================================
-
-Saved predictions to /workspace/results/dev/sliding_window_1/llama_3.1_3b.csv
-
-============================================================
-[4/56] Strategy 1 (sliding_window) - llama-3.1-3b - ood
-============================================================
-
-Strategy 1: Sliding Window Binary Classification
-Model: llama-3.1-3b
-Dataset: ood (1522 tokens)
-  Found 128 punctuation marks to classify
-Loading model: meta-llama/Llama-3.2-3B-Instruct
-CUDA available: NVIDIA RTX A4500
-CUDA memory: 21.2 GB
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.71it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.93it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.64it/s]
-Model compiled with torch.compile
-Model loaded successfully
-Classifying:   0%|          | 0/8 [00:00<?, ?it/s]Classifying:  12%|█▎        | 1/8 [00:00<00:02,  2.72it/s]Classifying:  25%|██▌       | 2/8 [00:00<00:02,  2.71it/s]Classifying:  38%|███▊      | 3/8 [00:01<00:01,  2.71it/s]Classifying:  50%|█████     | 4/8 [00:01<00:01,  2.71it/s]Classifying:  62%|██████▎   | 5/8 [00:01<00:01,  2.70it/s]Classifying:  75%|███████▌  | 6/8 [00:02<00:00,  2.70it/s]Classifying:  88%|████████▊ | 7/8 [00:02<00:00,  2.70it/s]Classifying: 100%|██████████| 8/8 [00:02<00:00,  2.71it/s]Classifying: 100%|██████████| 8/8 [00:02<00:00,  2.70it/s]
-
-============================================================
-Results for llama-3.1-3b with strategy_1
-============================================================
-Accuracy:  0.9369
-Precision: 0.0000
-Recall:    0.0000
-F1 Score:  0.0000
-
-Confusion Matrix:
-  Predicted:  0      1
-  Actual 0:  1426      0
-  Actual 1:    96      0
-============================================================
-
-Saved predictions to /workspace/results/ood/sliding_window_1/llama_3.1_3b.csv
-
-============================================================
-[5/56] Strategy 1 (sliding_window) - gpt-oss-20b - dev
-============================================================
-
-Strategy 1: Sliding Window Binary Classification
-Model: gpt-oss-20b
-Dataset: dev (9343 tokens)
-  Found 626 punctuation marks to classify
-Classifying:   0%|          | 0/626 [00:00<?, ?it/s]Classifying:   0%|          | 1/626 [00:00<09:13,  1.13it/s]Classifying:   0%|          | 2/626 [00:01<08:45,  1.19it/s]Classifying:   0%|          | 3/626 [00:02<08:01,  1.29it/s]Classifying:   1%|          | 4/626 [00:03<07:21,  1.41it/s]Classifying:   1%|          | 5/626 [00:03<07:28,  1.38it/s]Classifying:   1%|          | 6/626 [00:04<06:53,  1.50it/s]Classifying:   1%|          | 7/626 [00:04<06:41,  1.54it/s]Classifying:   1%|▏         | 8/626 [00:05<07:00,  1.47it/s]Classifying:   1%|▏         | 9/626 [00:06<07:07,  1.44it/s]Classifying:   2%|▏         | 10/626 [00:07<07:02,  1.46it/s]Classifying:   2%|▏         | 11/626 [00:07<06:55,  1.48it/s]Classifying:   2%|▏         | 12/626 [00:08<06:43,  1.52it/s]Classifying:   2%|▏         | 13/626 [00:09<07:07,  1.43it/s]Classifying:   2%|▏         | 14/626 [00:09<06:53,  1.48it/s]Classifying:   2%|▏         | 15/626 [00:10<06:57,  1.46it/s]Classifying:   3%|▎         | 16/626 [00:11<06:49,  1.49it/s]Classifying:   3%|▎         | 17/626 [00:11<06:32,  1.55it/s]Classifying:   3%|▎         | 18/626 [00:12<06:43,  1.51it/s]Classifying:   3%|▎         | 19/626 [00:13<06:51,  1.48it/s]Classifying:   3%|▎         | 20/626 [00:13<06:47,  1.49it/s]Classifying:   3%|▎         | 21/626 [00:26<43:21,  4.30s/it]Classifying:   4%|▎         | 22/626 [00:39<1:08:58,  6.85s/it]Classifying:   4%|▎         | 23/626 [00:39<50:08,  4.99s/it]  Classifying:   4%|▍         | 24/626 [00:40<36:58,  3.68s/it]Classifying:   4%|▍         | 25/626 [00:41<27:59,  2.80s/it]Classifying:   4%|▍         | 26/626 [00:41<21:36,  2.16s/it]Classifying:   4%|▍         | 27/626 [00:42<17:03,  1.71s/it]Classifying:   4%|▍         | 28/626 [00:43<13:48,  1.39s/it]Classifying:   5%|▍         | 29/626 [00:43<11:39,  1.17s/it]Classifying:   5%|▍         | 30/626 [00:44<10:15,  1.03s/it]Classifying:   5%|▍         | 31/626 [00:45<08:58,  1.10it/s]Classifying:   5%|▌         | 32/626 [00:45<08:18,  1.19it/s]Classifying:   5%|▌         | 33/626 [00:46<07:29,  1.32it/s]Classifying:   5%|▌         | 34/626 [00:48<09:45,  1.01it/s]Classifying:   6%|▌         | 35/626 [00:48<08:34,  1.15it/s]Classifying:   6%|▌         | 36/626 [00:49<07:40,  1.28it/s]Classifying:   6%|▌         | 37/626 [00:49<07:02,  1.40it/s]Classifying:   6%|▌         | 38/626 [00:50<06:35,  1.49it/s]Classifying:   6%|▌         | 39/626 [00:50<06:20,  1.54it/s]Classifying:   6%|▋         | 40/626 [00:51<06:08,  1.59it/s]Classifying:   7%|▋         | 41/626 [00:52<06:05,  1.60it/s]Classifying:   7%|▋         | 42/626 [00:52<06:15,  1.55it/s]Classifying:   7%|▋         | 43/626 [01:05<41:28,  4.27s/it]Classifying:   7%|▋         | 44/626 [03:08<6:26:12, 39.82s/it]Classifying:   7%|▋         | 45/626 [03:21<5:07:20, 31.74s/it]Classifying:   7%|▋         | 46/626 [03:34<4:12:24, 26.11s/it]Classifying:   8%|▊         | 47/626 [03:46<3:33:19, 22.11s/it]Classifying:   8%|▊         | 48/626 [03:59<3:05:48, 19.29s/it]Classifying:   8%|▊         | 49/626 [04:12<2:46:44, 17.34s/it]Classifying:   8%|▊         | 50/626 [04:25<2:33:09, 15.95s/it]Classifying:   8%|▊         | 51/626 [04:37<2:23:42, 14.99s/it]
